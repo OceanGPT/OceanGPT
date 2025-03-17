@@ -168,11 +168,11 @@ OceanGPT (沧渊) is trained based on the open-sourced large language models inc
 Please cite the following paper if you use OceanGPT in your work.
 
 ```bibtex
-@article{bi2023oceangpt,
+@article{bi2024oceangpt,
   title={OceanGPT: A Large Language Model for Ocean Science Tasks},
   author={Bi, Zhen and Zhang, Ningyu and Xue, Yida and Ou, Yixin and Ji, Daxiong and Zheng, Guozhou and Chen, Huajun},
   journal={arXiv preprint arXiv:2310.02031},
-  year={2023}
+  year={2024}
 }
 
 ```
