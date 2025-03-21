@@ -193,6 +193,7 @@ Running the model:
     -co -cnv -p "Your prompt" \
     -fa -ngl 80 -n 512
 ```
+  </details>
 
 <details> 
 <summary>ollama now officially supports Models based Qwen2.5. Click to see.</summary>
@@ -212,6 +213,7 @@ Running the model:
 ```shell
 ollama run example "What is your favourite condiment?"
 ```
+  </details>
 
 <details>
 <summary> vLLM now officially supports Models based Qwen2.5-VL and Qwen2.5. Click to see. </summary>
