@@ -24,7 +24,10 @@
 - <a href="#news">What's New</a>
 - <a href="#overview">Overview</a>
 - <a href="#quickstart">Quickstart</a>
-- <a href="#models">Models</a>
+- <a href="#chat-with-our-demo-on-gradio"> 🤗Chat with Our Demo on Gradio</a>
+- <a href="#inference">Inference</a>
+    - <a href="#models">Models</a>
+    - <a href="#efficient-inference-with-llamacpp-ollama-vllm">Efficient Inference with llama.cpp, ollama, vLLM</a>
 - <a href="#citation">Citation</a>
 
 ## 🔔News
@@ -138,7 +141,24 @@ llm = LLM(model=path)
 
 response = llm.generate(text, sampling_params)
 ```
-## 📌Models
+
+## 🤗Chat with Our Demo on Gradio
+
+### Online Demo <!-- omit in toc --> 
+
+We provide users with an interactive Gradio demo accessible online. Click here to try out the online demo of [OceanGPT/OceanGPT-V](http://121.41.117.246:7860/).
+
+### Local WebUI Demo
+You can easily deploy the interactive interface locally using the code we provide.
+
+```python
+python app.py
+```
+Open `https://localhost:7860/` in browser and enjoy the interaction with OceanGPT.
+
+## 📌Inference
+
+### Models
 
 | Model Name        | HuggingFace                                                          | WiseModel                                                                 | ModelScope                                                                |
 |-------------------|-----------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
@@ -147,6 +167,67 @@ response = llm.generate(text, sampling_params)
 | OceanGPT-2B-v0.1 (based on MiniCPM) | <a href="https://huggingface.co/zjunlp/OceanGPT-2B-v0.1" target="_blank">2B</a>   | <a href="https://wisemodel.cn/models/zjunlp/OceanGPT-2b-v0.1" target="_blank">2B</a>   | <a href="https://modelscope.cn/models/ZJUNLP/OceanGPT-2B-v0.1" target="_blank">2B</a>   |
 | OceanGPT-V  | To be released                                                                    | To be released                                                                         | To be released                                                                          |
 ---
+
+### Efficient Inference with llama.cpp, ollama, vLLM
+
+<details> 
+<summary>llama.cpp now officially supports Models based Qwen2.5-hf convert to gguf. Click to see.</summary>
+
+Download OceanGPT PyTorch model from huggingface to "OceanGPT" folder.
+
+Clone llama.cpp and make:
+```shell
+git clone https://github.com/ggml-org/llama.cpp
+cd llama.cpp
+make llama-cli
+```
+
+And then convert PyTorch model to gguf files:
+```shell
+python convert-hf-to-gguf.py OceanGPT --outfile OceanGPT.gguf
+```
+
+Running the model:
+```shell
+./llama-cli -m OceanGPT.gguf \
+    -co -cnv -p "Your prompt" \
+    -fa -ngl 80 -n 512
+```
+  </details>
+
+<details> 
+<summary>ollama now officially supports Models based Qwen2.5. Click to see.</summary>
+
+Create a file named `Modelfile`
+```shell
+FROM ./OceanGPT.gguf
+TEMPLATE "[INST] {{ .Prompt }} [/INST]"
+```
+
+Create the model in Ollama:
+```shell
+ollama create example -f Modelfile
+```
+
+Running the model:
+```shell
+ollama run example "What is your favourite condiment?"
+```
+  </details>
+
+<details>
+<summary> vLLM now officially supports Models based Qwen2.5-VL and Qwen2.5. Click to see. </summary>
+
+1. Install vLLM(>=0.7.3):
+```shell
+pip install vllm
+```
+
+2. Run Example:
+* [MLLM](https://docs.vllm.ai/en/latest/getting_started/examples/vision_language.html) 
+* [LLM](https://docs.vllm.ai/en/latest/getting_started/quickstart.html) 
+  </details>
+
 
 ## 🌻Acknowledgement
 
