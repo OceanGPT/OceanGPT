@@ -31,9 +31,9 @@
 - <a href="#citation">Citation</a>
 
 ## 🔔News
-- **2024-07-04, we release OceanGPT-14B/2B-v0.1 and OceanGPT-7B-v0.2 based on Qwen and MiniCPM.**
+- **2024-07-04, we release the OceanGPT-1-14B/2B and the updated version of OceanGPT-1-7B.**
 - **2024-06-04, [OceanGPT](https://arxiv.org/abs/2310.02031) is accepted by ACL 2024. 🎉🎉**
-- **2023-10-04, we release the paper "[OceanGPT: A Large Language Model for Ocean Science Tasks](https://arxiv.org/abs/2310.02031)" and release OceanGPT-7B-v0.1 based on LLaMA2.**
+- **2023-10-04, we release the paper "[OceanGPT: A Large Language Model for Ocean Science Tasks](https://arxiv.org/abs/2310.02031)" and release OceanGPT-1-7B based on LLaMA2.**
 - **2023-05-01, we launch the OceanGPT (沧渊) project.**
 ---
 
@@ -146,7 +146,7 @@ response = llm.generate(text, sampling_params)
 
 ### Online Demo <!-- omit in toc --> 
 
-We provide users with an interactive Gradio demo accessible online. Click here to try out the online demo of [OceanGPT/OceanGPT-V](http://121.41.117.246:7860/).
+We provide users with an interactive Gradio demo accessible online.
 
 ### Local WebUI Demo
 You can easily deploy the interactive interface locally using the code we provide.
