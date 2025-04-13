@@ -166,7 +166,7 @@ Open `https://localhost:7860/` in browser and enjoy the interaction with OceanGP
 | OceanGPT-7B-v0.2 (based on Qwen) | <a href="https://huggingface.co/zjunlp/OceanGPT-7b-v0.2" target="_blank">7B</a>   | <a href="https://wisemodel.cn/models/zjunlp/OceanGPT-7b-v0.2" target="_blank">7B</a>   | <a href="https://modelscope.cn/models/ZJUNLP/OceanGPT-7b-v0.2" target="_blank">7B</a>   |
 | OceanGPT-2B-v0.1 (based on MiniCPM) | <a href="https://huggingface.co/zjunlp/OceanGPT-2B-v0.1" target="_blank">2B</a>   | <a href="https://wisemodel.cn/models/zjunlp/OceanGPT-2b-v0.1" target="_blank">2B</a>   | <a href="https://modelscope.cn/models/ZJUNLP/OceanGPT-2B-v0.1" target="_blank">2B</a>   |
 | OceanGPT-o-7B  | To be released                                                                    | To be released                                                                         | To be released                                                                          |
-| OceanGPT-Coder-7B  | To be released                                                                    | To be released                                                                         | To be released                                                                          |
+| OceanGPT-e-7B  | To be released                                                                    | To be released                                                                         | To be released                                                                          |
 ---
 
 ### Efficient Inference with llama.cpp, ollama, vLLM
