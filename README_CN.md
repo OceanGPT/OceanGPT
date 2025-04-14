@@ -1,20 +1,20 @@
 <p align="left">
-        <a href="README_CN.md">中文</a>&nbsp ｜ &nbsp English</a>
+        中文</a>&nbsp ｜ &nbsp<a href="README.md">English</a>
 </p>
 <br>
 <div align="center">
 <img src="figs/logo.jpg" width="300px">
 
-**OceanGPT (沧渊): A Large Language Model for Ocean Science Tasks**
+**OceanGPT (沧渊): 一个面向海洋科学任务的大语言模型**
 
 <p align="center">
-  <a href="https://github.com/zjunlp/OceanGPT">Project</a> •
-  <a href="https://arxiv.org/abs/2310.02031">Paper</a> •
-  <a href="https://huggingface.co/collections/zjunlp/oceangpt-664cc106358fdd9f09aa5157">Models</a> •
-  <a href="http://oceangpt.zjukg.cn/">Web</a> •
-  <a href="#overview">Overview</a> •
-  <a href="#quickstart">Quickstart</a> •
-  <a href="#citation">Citation</a>
+    <a href="https://github.com/zjunlp/OceanGPT">项目</a> •
+    <a href="https://arxiv.org/abs/2310.02031">论文</a> •
+    <a href="https://huggingface.co/collections/zjunlp/oceangpt-664cc106358fdd9f09aa5157">模型</a> •
+    <a href="http://oceangpt.zjukg.cn/">网站</a> •
+    <a href="#overview">概述</a> •
+    <a href="#quickstart">快速开始</a> •
+    <a href="#citation">引用</a>
 </p>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
@@ -25,27 +25,27 @@
 
 ## Table of Contents
 
-- <a href="#news">What's New</a>
-- <a href="#overview">Overview</a>
-- <a href="#quickstart">Quickstart</a>
-- <a href="#chat-with-our-demo-on-gradio"> 🤗Chat with Our Demo on Gradio</a>
-- <a href="#inference">Inference</a>
-    - <a href="#models">Models</a>
-    - <a href="#efficient-inference-with-llamacpp-ollama-vllm">Efficient Inference with llama.cpp, ollama, vLLM</a>
-- <a href="#citation">Citation</a>
+- <a href="#最新动态">最新动态</a>
+- <a href="#概述">概述</a>
+- <a href="#quickstart">快速开始</a>
+- <a href="#与我们的Gradio演示对话"> 🤗与我们的Gradio演示对话</a>
+- <a href="#推理">推理</a>
+- <a href="#模型">模型</a>
+- <a href="#使用llama.cpp, ollama, vLLM进行高效推理">使用llama.cpp, ollama, vLLM进行高效推理</a>
+- <a href="#引用">引用</a>
 
-## 🔔News
-- **2024-07-04, we release the OceanGPT-Basic-14B/2B and the updated version of OceanGPT-Basic-7B.**
-- **2024-06-04, [OceanGPT](https://arxiv.org/abs/2310.02031) is accepted by ACL 2024. 🎉🎉**
-- **2023-10-04, we release the paper "[OceanGPT: A Large Language Model for Ocean Science Tasks](https://arxiv.org/abs/2310.02031)" and release OceanGPT-Basic-7B based on LLaMA2.**
-- **2023-05-01, we launch the OceanGPT (沧渊) project.**
+## 🔔最新动态
+- **2024-07-04，我们发布了OceanGPT-Basic-14B/2B以及更新版本的OceanGPT-Basic-7B。**
+- **2024-06-04，OceanGPT 被ACL 2024接收。🎉🎉**
+- **2023-10-04，我们发布了论文"OceanGPT: A Large Language Model for Ocean Science Tasks "并基于LLaMA2发布了OceanGPT-Basic-7B。**
+- **2023-05-01，我们启动了OceanGPT (沧渊) 项目。**
 ---
 
-## 🌟Overview
+## 🌟概述
 
-This is the OceanGPT (沧渊) project, which aims to build LLMs for ocean science tasks.
+这是OceanGPT (沧渊) 项目，旨在为海洋科学任务构建大语言模型。
 
-- ❗**Disclaimer: This project is purely an academic exploration rather than a product(本项目仅为学术探索并非产品应用). Please be aware that due to the inherent limitations of large language models, there may be issues such as hallucinations.**
+- ❗**免责声明：本项目纯属学术探索，并非产品应用（本项目仅为学术探索并非产品应用）。请注意，由于大型语言模型的固有局限性，可能会出现幻觉等问题。**
 
 <div align="center">
 <img src="figs/overview.png" width="60%">
@@ -53,7 +53,7 @@ This is the OceanGPT (沧渊) project, which aims to build LLMs for ocean scienc
 </div>
 
 
-## ⏩Quickstart
+## ⏩快速开始
 
 ```
 conda create -n py3.11 python=3.11
@@ -61,34 +61,34 @@ conda activate py3.11
 pip install -r requirements.txt
 ```
 
-### Download the model
-#### Download from HuggingFace
+### 下载模型
+#### 从HuggingFace下载
 ```shell
 git lfs install
 git clone https://huggingface.co/zjunlp/OceanGPT-14B-v0.1
 ```
-or
+或
 ```
 huggingface-cli download --resume-download zjunlp/OceanGPT-14B-v0.1 --local-dir OceanGPT-14B-v0.1 --local-dir-use-symlinks False
 ```
-#### Download from WiseModel
+#### 从WiseModel下载
 ```shell
 git lfs install
 git clone https://www.wisemodel.cn/zjunlp/OceanGPT-14B-v0.1.git
 ```
-#### Download from ModelScope
+#### 从ModelScope下载
 ```shell
 git lfs install
 git clone https://www.modelscope.cn/ZJUNLP/OceanGPT-14B-v0.1.git
 ```
 
-### Inference
-#### Inference by HuggingFace	
+### 推理
+#### 使用HuggingFace进行推理
 ```python
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import torch
 
-device = "cuda" # the device to load the model onto
+device = "cuda"
 path = 'YOUR-MODEL-PATH'
 
 model = AutoModelForCausalLM.from_pretrained(
@@ -120,7 +120,7 @@ generated_ids = [
 
 response = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
 ```
-#### Inference by vllm
+#### 使用vllm进行推理
 ```python
 from transformers import AutoTokenizer
 from vllm import LLM, SamplingParams
@@ -146,53 +146,53 @@ llm = LLM(model=path)
 response = llm.generate(text, sampling_params)
 ```
 
-## 🤗Chat with Our Demo on Gradio
+## 🤗与我们的Gradio演示对话
 
-### Online Demo <!-- omit in toc --> 
+### 在线演示 <!-- omit in toc -->
 
-We provide users with an interactive Gradio demo accessible online.
+我们为用户提供了可通过网络访问的交互式Gradio演示
 
-### Local WebUI Demo
+### 本地WebUI演示
 You can easily deploy the interactive interface locally using the code we provide.
 
 ```python
 python app.py
 ```
-Open `https://localhost:7860/` in browser and enjoy the interaction with OceanGPT.
+在浏览器中打开 `https://localhost:7860/` 并享受与OceanGPT的互动。
 
-## 📌Inference
+## 📌推理
 
-### Models
+### 模型
 
-| Model Name        | HuggingFace                                                          | WiseModel                                                                 | ModelScope                                                                |
+| 模型名称        | HuggingFace                                                          | WiseModel                                                                 | ModelScope                                                                |
 |-------------------|-----------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
 | OceanGPT-Basic-14B (based on Qwen) | <a href="https://huggingface.co/zjunlp/OceanGPT-14B-v0.1" target="_blank">14B</a> | <a href="https://wisemodel.cn/models/zjunlp/OceanGPT-14B-v0.1" target="_blank">14B</a> | <a href="https://modelscope.cn/models/ZJUNLP/OceanGPT-14B-v0.1" target="_blank">14B</a> |
 | OceanGPT-Basic-7B (based on Qwen) | <a href="https://huggingface.co/zjunlp/OceanGPT-7b-v0.2" target="_blank">7B</a>   | <a href="https://wisemodel.cn/models/zjunlp/OceanGPT-7b-v0.2" target="_blank">7B</a>   | <a href="https://modelscope.cn/models/ZJUNLP/OceanGPT-7b-v0.2" target="_blank">7B</a>   |
 | OceanGPT-Basic-2B (based on MiniCPM) | <a href="https://huggingface.co/zjunlp/OceanGPT-2B-v0.1" target="_blank">2B</a>   | <a href="https://wisemodel.cn/models/zjunlp/OceanGPT-2b-v0.1" target="_blank">2B</a>   | <a href="https://modelscope.cn/models/ZJUNLP/OceanGPT-2B-v0.1" target="_blank">2B</a>   |
-| OceanGPT-Omni-7B  | To be released                                                                    | To be released                                                                         | To be released                                                                          |
-| OceanGPT-Coder-7B  | To be released                                                                    | To be released                                                                         | To be released                                                                          |
+| OceanGPT-Omni-7B  | 即将发布                                                                    | 即将发布                                                                         | 即将发布                                                                          |
+| OceanGPT-Coder-7B  | 即将发布                                                                    | 即将发布                                                                         | 即将发布                                                                          |
 ---
 
-### Efficient Inference with llama.cpp, ollama, vLLM
+### 使用llama.cpp、ollama、vLLM进行高效推理
 
 <details> 
-<summary>llama.cpp now officially supports Models based Qwen2.5-hf convert to gguf. Click to see.</summary>
+<summary>llama.cpp现在正式支持基于Qwen2.5-hf转换为gguf的模型。点击展开查看。</summary>
 
-Download OceanGPT PyTorch model from huggingface to "OceanGPT" folder.
+从huggingface下载OceanGPT PyTorch模型到“OceanGPT”文件夹。
 
-Clone llama.cpp and make:
+克隆llama.cpp并编译：
 ```shell
 git clone https://github.com/ggml-org/llama.cpp
 cd llama.cpp
 make llama-cli
 ```
 
-And then convert PyTorch model to gguf files:
+然后将PyTorch模型转换为gguf文件：
 ```shell
 python convert-hf-to-gguf.py OceanGPT --outfile OceanGPT.gguf
 ```
 
-Running the model:
+运行模型：
 ```shell
 ./llama-cli -m OceanGPT.gguf \
     -co -cnv -p "Your prompt" \
@@ -201,57 +201,53 @@ Running the model:
   </details>
 
 <details> 
-<summary>ollama now officially supports Models based Qwen2.5. Click to see.</summary>
+<summary>ollama现在正式支持基于Qwen2.5的模型。点击展开查看。</summary>
 
-Create a file named `Modelfile`
+创建一个名为`Modelfile`的文件：
 ```shell
 FROM ./OceanGPT.gguf
 TEMPLATE "[INST] {{ .Prompt }} [/INST]"
 ```
 
-Create the model in Ollama:
+在Ollama中创建模型：
 ```shell
 ollama create example -f Modelfile
 ```
 
-Running the model:
+运行模型：
 ```shell
 ollama run example "What is your favourite condiment?"
 ```
   </details>
 
 <details>
-<summary> vLLM now officially supports Models based Qwen2.5-VL and Qwen2.5. Click to see. </summary>
+<summary> vLLM现在正式支持基于Qwen2.5-VL和Qwen2.5的模型。点击展开查看。</summary>
 
-1. Install vLLM(>=0.7.3):
+1. 下载 vLLM(>=0.7.3):
 ```shell
 pip install vllm
 ```
 
-2. Run Example:
+2. 运行示例:
 * [MLLM](https://docs.vllm.ai/en/latest/getting_started/examples/vision_language.html) 
 * [LLM](https://docs.vllm.ai/en/latest/getting_started/quickstart.html) 
   </details>
 
 
-## 🌻Acknowledgement
+## 🌻致谢
 
-OceanGPT (沧渊) is trained based on the open-sourced large language models including [Qwen](https://huggingface.co/Qwen), [MiniCPM](https://huggingface.co/collections/openbmb/minicpm-2b-65d48bf958302b9fd25b698f), [LLaMA](https://huggingface.co/meta-llama). Thanks for their great contributions!
+OceanGPT (沧渊) 基于开源大语言模型训练，包括[Qwen](https://huggingface.co/Qwen), [MiniCPM](https://huggingface.co/collections/openbmb/minicpm-2b-65d48bf958302b9fd25b698f), [LLaMA](https://huggingface.co/meta-llama)。感谢他们的杰出贡献！
 
-## Limitations
+## 局限性
 
-- The model may have hallucination issues.
+- 模型可能存在幻觉问题。
+- 我们未对身份信息进行优化，模型可能会生成类似于Qwen/MiniCPM/LLaMA/GPT系列模型的身份信息。
+- 模型输出受提示词影响，可能导致多次尝试结果不一致。
+- 模型需要包含特定模拟器代码指令进行训练才能具备模拟具身智能能力（模拟器受版权限制，暂无法公开），其当前能力非常有限。
 
-- We did not optimize the identity and the model may generate identity information similar to that of Qwen/MiniCPM/LLaMA/GPT series models.
+### 🚩引用
 
-- The model's output is influenced by prompt tokens, which may result in inconsistent results across multiple attempts.
-
-- The model requires the inclusion of specific simulator code instructions for training in order to possess simulated embodied intelligence capabilities (the simulator is subject to copyright restrictions and cannot be made available for now), and its current capabilities are quite limited.
-
-
-### 🚩Citation
-
-Please cite the following paper if you use OceanGPT in your work.
+如果您在工作中使用了OceanGPT，请引用以下论文。
 
 ```bibtex
 @article{bi2024oceangpt,
