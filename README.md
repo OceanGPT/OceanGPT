@@ -1,4 +1,4 @@
-<br>
+<img width="714" alt="image" src="https://github.com/user-attachments/assets/b9104163-c7c7-47ac-a310-f761e05024a6" /><br>
 <div align="center">
 <img src="figs/logo.jpg" width="300px">
 
@@ -61,6 +61,7 @@
 | OceanInstruct  | <a href="" target="_blank">50K</a> | <a href="" target="_blank">50K</a> | <a href="1" target="_blank">50K</a> |
 | OceanInstruct-o  | <a href="" target="_blank">50K</a> | <a href="" target="_blank">50K</a> | <a href="1" target="_blank">50K</a> |
 ---
+- ❗**Some of the instruction data are synthetic data; we apologize for any inaccuracies that may exist (部分指令数据为合成数据，如存在错误敬请谅解)！**
 
 ## 🌟Overview
 
