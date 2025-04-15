@@ -2,7 +2,7 @@
 <div align="center">
 <img src="figs/logo.jpg" width="300px">
 
-**OceanGPT (沧渊): A Large Language Model for Ocean Science Tasks**
+**OceanGPT (沧渊): Ocean Foundation Model**
 
 <p align="center">
   <a href="https://github.com/zjunlp/OceanGPT">Project</a> •
@@ -32,10 +32,32 @@
 - <a href="#citation">Citation</a>
 
 ## 🔔News
+- **2024-04-09, we collect sonar data using a ROV for model training and test OceanGPT-Coder in operating the AUV during a pool experiment.**
+- **2024-08-01, we launch bilingual (Chinese-English) multimodal large language model OceanGPT-o with sonar and ocean science image data collection and training.**
 - **2024-07-04, we release the OceanGPT-Basic-14B/2B and the updated version of OceanGPT-Basic-7B.**
 - **2024-06-04, [OceanGPT](https://arxiv.org/abs/2310.02031) is accepted by ACL 2024. 🎉🎉**
 - **2023-10-04, we release the paper "[OceanGPT: A Large Language Model for Ocean Science Tasks](https://arxiv.org/abs/2310.02031)" and release OceanGPT-Basic-7B based on LLaMA2.**
 - **2023-05-01, we launch the OceanGPT (沧渊) project.**
+---
+
+### Models
+
+| Model Name        | HuggingFace                                                          | WiseModel                                                                 | ModelScope                                                                |
+|-------------------|-----------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
+| OceanGPT-Basic-14B (based on Qwen, legacy) | <a href="https://huggingface.co/zjunlp/OceanGPT-14B-v0.1" target="_blank">14B</a> | <a href="https://wisemodel.cn/models/zjunlp/OceanGPT-14B-v0.1" target="_blank">14B</a> | <a href="https://modelscope.cn/models/ZJUNLP/OceanGPT-14B-v0.1" target="_blank">14B</a> |
+| OceanGPT-Basic-7B (based on Qwen, legacy) | <a href="https://huggingface.co/zjunlp/OceanGPT-7b-v0.2" target="_blank">7B</a>   | <a href="https://wisemodel.cn/models/zjunlp/OceanGPT-7b-v0.2" target="_blank">7B</a>   | <a href="https://modelscope.cn/models/ZJUNLP/OceanGPT-7b-v0.2" target="_blank">7B</a>   |
+| OceanGPT-Basic-2B (based on MiniCPM, legacy) | <a href="https://huggingface.co/zjunlp/OceanGPT-2B-v0.1" target="_blank">2B</a>   | <a href="https://wisemodel.cn/models/zjunlp/OceanGPT-2b-v0.1" target="_blank">2B</a>   | <a href="https://modelscope.cn/models/ZJUNLP/OceanGPT-2B-v0.1" target="_blank">2B</a>   |
+| OceanGPT-Basic-8B (based on Qwen, **recommended**)  | To be released                                                                    | To be released                                                                         | To be released        
+| OceanGPT-o-7B (based on Qwen, **recommended**)  | To be released                                                                    | To be released                                                                         | To be released                                                                          |
+| OceanGPT-Coder-7B (based on Qwen, **recommended**)  | To be released                                                                    | To be released                                                                         | To be released                                                                          |
+---
+
+### Instruction Data
+
+| Data Name        | HuggingFace                                                          | WiseModel                                                                 | ModelScope                                                                |
+|-------------------|-----------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
+| OceanInstruct  | <a href="" target="_blank">50K</a> | <a href="" target="_blank">50K</a> | <a href="1" target="_blank">50K</a> |
+| OceanInstruct-o  | <a href="" target="_blank">50K</a> | <a href="" target="_blank">50K</a> | <a href="1" target="_blank">50K</a> |
 ---
 
 ## 🌟Overview
@@ -158,18 +180,6 @@ python app.py
 Open `https://localhost:7860/` in browser and enjoy the interaction with OceanGPT.
 
 ## 📌Inference
-
-### Models
-
-| Model Name        | HuggingFace                                                          | WiseModel                                                                 | ModelScope                                                                |
-|-------------------|-----------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
-| OceanGPT-Basic-14B (based on Qwen, legacy) | <a href="https://huggingface.co/zjunlp/OceanGPT-14B-v0.1" target="_blank">14B</a> | <a href="https://wisemodel.cn/models/zjunlp/OceanGPT-14B-v0.1" target="_blank">14B</a> | <a href="https://modelscope.cn/models/ZJUNLP/OceanGPT-14B-v0.1" target="_blank">14B</a> |
-| OceanGPT-Basic-7B (based on Qwen, legacy) | <a href="https://huggingface.co/zjunlp/OceanGPT-7b-v0.2" target="_blank">7B</a>   | <a href="https://wisemodel.cn/models/zjunlp/OceanGPT-7b-v0.2" target="_blank">7B</a>   | <a href="https://modelscope.cn/models/ZJUNLP/OceanGPT-7b-v0.2" target="_blank">7B</a>   |
-| OceanGPT-Basic-2B (based on MiniCPM, legacy) | <a href="https://huggingface.co/zjunlp/OceanGPT-2B-v0.1" target="_blank">2B</a>   | <a href="https://wisemodel.cn/models/zjunlp/OceanGPT-2b-v0.1" target="_blank">2B</a>   | <a href="https://modelscope.cn/models/ZJUNLP/OceanGPT-2B-v0.1" target="_blank">2B</a>   |
-| OceanGPT-Basic-8B (based on Qwen, **recommended**)  | To be released                                                                    | To be released                                                                         | To be released        
-| OceanGPT-o-7B (based on Qwen, **recommended**)  | To be released                                                                    | To be released                                                                         | To be released                                                                          |
-| OceanGPT-Coder-7B (based on Qwen, **recommended**)  | To be released                                                                    | To be released                                                                         | To be released                                                                          |
----
 
 ### Efficient Inference with llama.cpp, ollama, vLLM
 
