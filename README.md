@@ -52,6 +52,8 @@
 | OceanGPT-Coder-7B (based on Qwen, **recommended**)  | To be released                                                                    | To be released                                                                         | To be released                                                                          |
 ---
 
+- ❗**Please note that the ocean domain Q&A in the online demo system (including the video) is based on knowledge base augmentation and a "general-specialized integration" approach, and the generated content differs from that of the open-source models (注意：在线演示系统和视频里的海洋专业问答采用了知识增强和通专结合策略，因此和开源模型存在差异)！**
+
 ### Instruction Data
 
 | Data Name        | HuggingFace                                                          | WiseModel                                                                 | ModelScope                                                                |
