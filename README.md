@@ -1,6 +1,3 @@
-<p align="left">
-        <a href="README_CN.md">中文</a>&nbsp ｜ &nbsp English</a>
-</p>
 <br>
 <div align="center">
 <img src="figs/logo.jpg" width="300px">
