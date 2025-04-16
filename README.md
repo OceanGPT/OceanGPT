@@ -32,7 +32,8 @@
 - <a href="#citation">Citation</a>
 
 ## 🔔News
-- **2024-04-09, we collect sonar data using a ROV for model training and test OceanGPT-Coder in operating the AUV during a pool experiment.**
+- **2025-04-09, we collect sonar data using a ROV for model training and test OceanGPT-Coder in operating the AUV during a pool experiment.**
+- **2024-12-01, we collect more publicly available sonar data and scientific images for model training.**
 - **2024-08-01, we launch bilingual (Chinese-English) multimodal large language model OceanGPT-o with sonar and ocean science image data collection and training.**
 - **2024-07-04, we release the OceanGPT-Basic-14B/2B and the updated version of OceanGPT-Basic-7B.**
 - **2024-06-04, [OceanGPT](https://arxiv.org/abs/2310.02031) is accepted by ACL 2024. 🎉🎉**
