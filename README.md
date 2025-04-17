@@ -261,6 +261,8 @@ Thanks for their great contributions!
 
 - The model may have hallucination issues.
 
+- Due to limited computational resources, OceanGPT-o currently only supports natural language generation for certain types of sonar images and ocean science images. OceanGPT-coder currently only supports MOOS code generation.
+- 
 - We did not optimize the identity and the model may generate identity information similar to that of Qwen/MiniCPM/LLaMA/GPT series models.
 
 - The model's output is influenced by prompt tokens, which may result in inconsistent results across multiple attempts.
