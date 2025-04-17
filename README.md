@@ -57,6 +57,7 @@
 ---
 
 - ❗**Please note that the ocean domain Q&A in the online demo system (including the video) is based on knowledge base augmentation and a "general-specialized integration" approach, and the generated content differs from that of the open-source models (注意：在线演示系统和视频里的海洋专业问答采用了知识增强，因此和开源模型存在差异)！**
+- ❗**Due to limited computing resources, OceanGPT-o is currently only applicable for natural language interpretation and generation of certain types of sonar images and marine science images. It is recommended to use a GPU that is greater than or equal to 24GB.**
 
 ### Instruction Data
 
@@ -265,7 +266,6 @@ Thanks for their great contributions!
 - The model's output is influenced by prompt tokens, which may result in inconsistent results across multiple attempts.
 
 - The model requires the inclusion of specific simulator code instructions for training in order to possess simulated embodied intelligence capabilities (the simulator is subject to copyright restrictions and cannot be made available for now), and its current capabilities are quite limited.
-
 
 ### 🚩Citation
 
