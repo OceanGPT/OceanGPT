@@ -35,8 +35,16 @@ mllm = LLM(
 
 llm = LLM(model="OceanGPT's path")
 
+coder = LLM(model="OceanGPT-coder's path")
+
 # Qwen2.5
 def chat_qwen(questions: list[str],temperature: float, top_p: float, max_tokens: int):
+    sampling_params = SamplingParams(temperature=temperature, top_p=top_p, max_tokens=max_tokens)
+    outputs = llm.generate(questions, sampling_params)[0]
+    generated_text = outputs.outputs[0].text
+    return generated_text
+
+def chat_qwen_coder(questions: list[str],temperature: float, top_p: float, max_tokens: int):
     sampling_params = SamplingParams(temperature=temperature, top_p=top_p, max_tokens=max_tokens)
     outputs = llm.generate(questions, sampling_params)[0]
     generated_text = outputs.outputs[0].text
@@ -208,6 +216,37 @@ def create_demo():
             )
             clear_button.add([response_res])
             run_botton.click(fn=chat_qwen,
+                            inputs=inputs, outputs=outputs)
+            
+        with gr.Tab("OceanGPT-coder"):
+            with gr.Row():
+                with gr.Column():
+                    llm_text = gr.Textbox(placeholder="Input query", label="text input")
+                    temperature = gr.Slider(minimum=0, maximum=2, label="temperature", step=0.6, value=1.2)
+                    top_p = gr.Slider(minimum=0, maximum=1, label="top_p", step=0.01, value=0.8)
+                    max_tokens = gr.Slider(minimum=1, maximum=4096, label="max_tokens", step=512, value=2048)
+                    clear_button = gr.ClearButton(components=[llm_text],value="Clear")
+                    run_botton = gr.Button("Run")
+                with gr.Column():
+                    llm_response_res = gr.Textbox(label="OceanGPT-coder's response")
+            
+            inputs = [llm_text, temperature, top_p, max_tokens]
+            outputs = [llm_response_res]
+            
+            examples = [["请为水下机器人生成MOOS代码，实现如下任务：按照顺序分别往以下几点 60,-40:60,-160:150,-160:180,-100:150,-40，速度为2m/s，任务执行两次，任务完成后返回原点。"],
+                        ["请为水下机器人生成MOOS代码，实现如下任务：先前往3m的深度，然后按照顺序定高2m分别前往以下几点（10，20），（30，40），速度为2m/s，任务执行一次，完成后以定深1m返回原点，而后上浮。"],
+                        ["请为水下机器人生成MOOS代码，实现如下任务：先回到（50,20）点，然后以（15,20）点为圆形，做半径为30的圆周运动，持续时间200s，速度4 m/s。"],
+                        ["请为水下机器人生成MOOS代码，实现如下任务：先下潜10m深度，然后在3m深度，维持航向为180°，并持续3分钟，然后以1m/s的速度回到原点。"]]
+            
+            gr.Examples(
+                examples=examples,
+                inputs=inputs,
+                outputs=outputs,
+                cache_examples=False,
+                run_on_click=False
+            )
+            clear_button.add([response_res])
+            run_botton.click(fn=chat_qwen_coder,
                             inputs=inputs, outputs=outputs)
             
         with gr.Accordion("Disclaimer"):
