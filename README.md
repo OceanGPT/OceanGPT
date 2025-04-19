@@ -268,7 +268,6 @@ Thanks for their great contributions!
 
 - The model's output is influenced by prompt tokens, which may result in inconsistent results across multiple attempts.
 
-- The model requires the inclusion of specific simulator code instructions for training in order to possess simulated embodied intelligence capabilities (the simulator is subject to copyright restrictions and cannot be made available for now), and its current capabilities are quite limited.
 
 ### 🚩Citation
 
