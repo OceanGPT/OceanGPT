@@ -1,4 +1,4 @@
-<br>
+
 <div align="center">
 <img src="figs/logo.jpg" width="300px">
 
@@ -32,33 +32,41 @@
 - <a href="#citation">Citation</a>
 
 ## 🔔News
-- **2024-04-09, we collect sonar data using a ROV for model training and test OceanGPT-Coder in operating the AUV during a pool experiment.**
+- **2025-04-20, we release the OceanGPT-o-7B and OceanGPT-coder-7B.**
+- **2025-02-01, we collect sonar data for model training and test OceanGPT-coder.**
+- **2024-12-01, we collect more publicly available sonar data and scientific images for model training.**
 - **2024-08-01, we launch bilingual (Chinese-English) multimodal large language model OceanGPT-o with sonar and ocean science image data collection and training.**
-- **2024-07-04, we release the OceanGPT-Basic-14B/2B and the updated version of OceanGPT-Basic-7B.**
+- **2024-07-04, we release the OceanGPT-basic-14B/2B and the updated version of OceanGPT-basic-7B (v0.2).**
 - **2024-06-04, [OceanGPT](https://arxiv.org/abs/2310.02031) is accepted by ACL 2024. 🎉🎉**
-- **2023-10-04, we release the paper "[OceanGPT: A Large Language Model for Ocean Science Tasks](https://arxiv.org/abs/2310.02031)" and release OceanGPT-Basic-7B based on LLaMA2.**
+- **2023-10-04, we release the paper "[OceanGPT: A Large Language Model for Ocean Science Tasks](https://arxiv.org/abs/2310.02031)" and release OceanGPT-basic-7B (v0.1) based on LLaMA2.**
 - **2023-05-01, we launch the OceanGPT (沧渊) project.**
 ---
 
 ### Models
 
-| Model Name        | HuggingFace                                                          | WiseModel                                                                 | ModelScope                                                                |
-|-------------------|-----------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
-| OceanGPT-Basic-14B (based on Qwen, legacy) | <a href="https://huggingface.co/zjunlp/OceanGPT-14B-v0.1" target="_blank">14B</a> | <a href="https://wisemodel.cn/models/zjunlp/OceanGPT-14B-v0.1" target="_blank">14B</a> | <a href="https://modelscope.cn/models/ZJUNLP/OceanGPT-14B-v0.1" target="_blank">14B</a> |
-| OceanGPT-Basic-7B (based on Qwen, legacy) | <a href="https://huggingface.co/zjunlp/OceanGPT-7b-v0.2" target="_blank">7B</a>   | <a href="https://wisemodel.cn/models/zjunlp/OceanGPT-7b-v0.2" target="_blank">7B</a>   | <a href="https://modelscope.cn/models/ZJUNLP/OceanGPT-7b-v0.2" target="_blank">7B</a>   |
-| OceanGPT-Basic-2B (based on MiniCPM, legacy) | <a href="https://huggingface.co/zjunlp/OceanGPT-2B-v0.1" target="_blank">2B</a>   | <a href="https://wisemodel.cn/models/zjunlp/OceanGPT-2b-v0.1" target="_blank">2B</a>   | <a href="https://modelscope.cn/models/ZJUNLP/OceanGPT-2B-v0.1" target="_blank">2B</a>   |
-| OceanGPT-Basic-8B (based on Qwen, **recommended**)  | To be released                                                                    | To be released                                                                         | To be released        
-| OceanGPT-o-7B (based on Qwen, **recommended**)  | To be released                                                                    | To be released                                                                         | To be released                                                                          |
-| OceanGPT-Coder-7B (based on Qwen, **recommended**)  | To be released                                                                    | To be released                                                                         | To be released                                                                          |
+| Model Name        |        ModelScope                                                                                                              | HuggingFace                                                               |
+|-------------------|-----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|     
+| OceanGPT-o-7B (based on Qwen, **recommended**)                                                                      | To be released                                                                         | To be released                                                                          |
+| OceanGPT-coder-7B (based on Qwen, **recommended**)                                                                      | To be released                                                                         | To be released      
+| OceanGPT-basic-8B (based on Qwen, **recommended**)                                                                    | To be released                                                                         | To be released   |
+| OceanGPT-basic-14B (based on Qwen, legacy) |<a href="https://modelscope.cn/models/ZJUNLP/OceanGPT-14B-v0.1" target="_blank">14B</a>   | <a href="https://huggingface.co/zjunlp/OceanGPT-14B-v0.1" target="_blank">14B</a> |
+| OceanGPT-basic-7B (based on Qwen, legacy) |  <a href="https://modelscope.cn/models/ZJUNLP/OceanGPT-7b-v0.2" target="_blank">7B</a>    |  <a href="https://huggingface.co/zjunlp/OceanGPT-7b-v0.2" target="_blank">7B</a>   |
+| OceanGPT-basic-2B (based on MiniCPM, legacy) | <a href="https://modelscope.cn/models/ZJUNLP/OceanGPT-2B-v0.1" target="_blank">2B</a>    |  <a href="https://huggingface.co/zjunlp/OceanGPT-2B-v0.1" target="_blank">2B</a>   |
+
+
 ---
+
+- ❗**Please note that the ocean domain Q&A in the online demo system (including the video) is based on knowledge base augmentation and a "general-specialized integration" approach, and the generated content differs from that of the open-source models (注意：在线演示系统和视频里的海洋专业问答采用了知识增强与通专结合等技术，因此和开源模型存在差异)！**
+- ❗**Due to limited computing resources, OceanGPT-o is currently only applicable for natural language interpretation and generation of certain types of sonar images and marine science images. It is recommended to use a GPU that is greater than or equal to 24GB.**
 
 ### Instruction Data
 
-| Data Name        | HuggingFace                                                          | WiseModel                                                                 | ModelScope                                                                |
-|-------------------|-----------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
-| OceanInstruct  | <a href="" target="_blank">50K</a> | <a href="" target="_blank">50K</a> | <a href="1" target="_blank">50K</a> |
-| OceanInstruct-o  | <a href="" target="_blank">50K</a> | <a href="" target="_blank">50K</a> | <a href="1" target="_blank">50K</a> |
+| Data Name        | HuggingFace                                                                                                                    | ModelScope                                                                |
+|-------------------|----------------------------------------------------------------------------------- |-----------------------------------------------------------------------------------------|
+| OceanInstruct  | <a href="" target="_blank">50K</a>   | <a href="1" target="_blank">50K</a> |
+| OceanInstruct-o  | <a href="" target="_blank">50K</a>  | <a href="1" target="_blank">50K</a> |
 ---
+- ❗**Some of the instruction data are synthetic data; we apologize for any inaccuracies that may exist (部分指令数据为合成数据，如存在错误敬请谅解)！**
 
 ## 🌟Overview
 
@@ -244,18 +252,21 @@ pip install vllm
 
 ## 🌻Acknowledgement
 
-OceanGPT (沧渊) is trained based on the open-sourced large language models including [Qwen](https://huggingface.co/Qwen), [MiniCPM](https://huggingface.co/collections/openbmb/minicpm-2b-65d48bf958302b9fd25b698f), [LLaMA](https://huggingface.co/meta-llama). Thanks for their great contributions!
+OceanGPT (沧渊) is trained based on the open-sourced large language models including [Qwen](https://huggingface.co/Qwen), [MiniCPM](https://huggingface.co/collections/openbmb/minicpm-2b-65d48bf958302b9fd25b698f), [LLaMA](https://huggingface.co/meta-llama).
 
+OceanGPT is trained based on the open-sourced data and tools including [Moos](https://github.com/moos-tutorials), [UATD](https://openi.pcl.ac.cn/OpenOrcinus_orca/URPC2021_sonar_images_dataset), [Forward-looking Sonar Detection Dataset](https://github.com/XingYZhu/Forward-looking-Sonar-Detection-Dataset), [NKSID](https://github.com/Jorwnpay/NK-Sonar-Image-Dataset), [SeabedObjects-KLSG](https://github.com/huoguanying/SeabedObjects-Ship-and-Airplane-dataset), [Marine Debris](https://github.com/mvaldenegro/marine-debris-fls-datasets/tree/master/md_fls_dataset/data/turntable-cropped).
+
+Thanks for their great contributions!
 ## Limitations
 
 - The model may have hallucination issues.
 
+- Due to limited computational resources, OceanGPT-o currently only supports natural language generation for certain types of sonar images and ocean science images. OceanGPT-coder currently only supports MOOS code generation.
 - We did not optimize the identity and the model may generate identity information similar to that of Qwen/MiniCPM/LLaMA/GPT series models.
 
 - The model's output is influenced by prompt tokens, which may result in inconsistent results across multiple attempts.
 
 - The model requires the inclusion of specific simulator code instructions for training in order to possess simulated embodied intelligence capabilities (the simulator is subject to copyright restrictions and cannot be made available for now), and its current capabilities are quite limited.
-
 
 ### 🚩Citation
 
