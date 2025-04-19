@@ -29,6 +29,8 @@
 - <a href="#inference">Inference</a>
     - <a href="#models">Models</a>
     - <a href="#efficient-inference-with-llamacpp-ollama-vllm">Efficient Inference with llama.cpp, ollama, vLLM</a>
+- <a href="#acknowledgement">Acknowledgement</a>
+- <a href="#limitations">Limitations</a>
 - <a href="#citation">Citation</a>
 
 ## 🔔News
