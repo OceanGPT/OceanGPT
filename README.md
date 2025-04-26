@@ -2,7 +2,7 @@
 <div align="center">
 <img src="figs/logo.jpg" width="300px">
 
-**OceanGPT (沧渊): Ocean Foundation Model**
+**沧渊海洋基础大模型：Ocean Foundation Models**
 
 <p align="center">
   <a href="https://github.com/zjunlp/OceanGPT">Project</a> •
