@@ -184,6 +184,11 @@ response = llm.generate(text, sampling_params)
 
 We provide users with an interactive Gradio demo accessible online.
 
+<div align="center">
+<img src="figs/1.png" width="60%">
+<img src="figs/2.png" width="60%">
+</div>
+
 ### Local WebUI Demo
 You can easily deploy the interactive interface locally using the code we provide.
 
