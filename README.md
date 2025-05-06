@@ -49,8 +49,8 @@
 | Model Name        |        ModelScope                                                                                                              | HuggingFace                                                               |
 |-------------------|-----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|     
 | OceanGPT-o-7B (based on Qwen, **recommended**)                      |<a href="https://modelscope.cn/models/ZJUNLP/OceanGPT-o-7B" target="_blank">7B</a>   | <a href="https://huggingface.co/zjunlp/OceanGPT-o-7B" target="_blank">7B</a> |
-| OceanGPT-coder-7B (based on Qwen, **recommended**)                                                                      | To be released                                                                         | To be released      
-| OceanGPT-basic-8B (based on Qwen, **recommended**)                                                                    | To be released                                                                         | To be released   |
+| OceanGPT-coder-7B (based on Qwen, **recommended**)                                                                      | <a href="https://modelscope.cn/models/ZJUNLP/OceanGPT-coder-7B" target="_blank">7B</a>                                                                        | <a href="https://huggingface.co/zjunlp/OceanGPT-coder-7B" target="_blank">7B</a>     
+| OceanGPT-basic-8B (based on Qwen, **recommended**)                                                                    |     to be released soon                                                                   |  to be released soon   |
 | OceanGPT-basic-14B (based on Qwen, legacy) |<a href="https://modelscope.cn/models/ZJUNLP/OceanGPT-14B-v0.1" target="_blank">14B</a>   | <a href="https://huggingface.co/zjunlp/OceanGPT-14B-v0.1" target="_blank">14B</a> |
 | OceanGPT-basic-7B (based on Qwen, legacy) |  <a href="https://modelscope.cn/models/ZJUNLP/OceanGPT-7b-v0.2" target="_blank">7B</a>    |  <a href="https://huggingface.co/zjunlp/OceanGPT-7b-v0.2" target="_blank">7B</a>   |
 | OceanGPT-basic-2B (based on MiniCPM, legacy) | <a href="https://modelscope.cn/models/ZJUNLP/OceanGPT-2B-v0.1" target="_blank">2B</a>    |  <a href="https://huggingface.co/zjunlp/OceanGPT-2B-v0.1" target="_blank">2B</a>   |
@@ -65,8 +65,9 @@
 
 | Data Name        | HuggingFace                                                                                                                    | ModelScope                                                                |
 |-------------------|----------------------------------------------------------------------------------- |-----------------------------------------------------------------------------------------|
-| OceanInstruct  | <a href="" target="_blank">50K</a>   | <a href="1" target="_blank">50K</a> |
-| OceanInstruct-o  | <a href="" target="_blank">50K</a>  | <a href="1" target="_blank">50K</a> |
+| OceanInstruct-v0.2  | <a href="https://huggingface.co/datasets/zjunlp/OceanInstruct-v0.2" target="_blank">50K</a>   | <a href="https://modelscope.cn/datasets/ZJUNLP/OceanInstruct-v0.2" target="_blank">50K</a> |
+| OceanInstruct-o  | <a href="https://huggingface.co/datasets/zjunlp/OceanInstruct-o" target="_blank">50K</a>  | <a href="https://modelscope.cn/datasets/ZJUNLP/OceanInstruct-o" target="_blank">50K</a> |
+| OceanInstruct-v0.1  | <a href="https://huggingface.co/datasets/zjunlp/OceanInstruct-v0.1" target="_blank">10K</a>  | <a href="https://modelscope.cn/datasets/ZJUNLP/OceanInstruct-v0.1" target="_blank">10K</a> |
 ---
 - ❗**Some of the instruction data are synthetic data; we apologize for any inaccuracies that may exist (部分指令数据为合成数据，如存在错误敬请谅解)！**
 
