@@ -193,7 +193,9 @@ Here is the demo about using OceanGPT-o:
     </tr>
 </table>
 1. Input your query and upload an image.
+
 2. Choose the generation hyparameters.
+
 3. Run and get results.
 
 
@@ -205,7 +207,9 @@ Here is the demo about using OceanGPT-coder:
     </tr>
 </table>
 1. Input your query.
+
 2. Choose the generation hyparameters.
+  
 3. Run and get results.
 
 
