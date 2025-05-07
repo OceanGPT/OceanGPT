@@ -8,7 +8,7 @@
   <a href="https://github.com/zjunlp/OceanGPT">Project</a> •
   <a href="https://arxiv.org/abs/2310.02031">Paper</a> •
   <a href="https://huggingface.co/collections/zjunlp/oceangpt-664cc106358fdd9f09aa5157">Models</a> •
-  <a href="http://oceangpt.zjukg.cn/">Web</a> •
+  <a href="http://oceangpt.blue/">Web</a> •
   <a href="#overview">Overview</a> •
   <a href="#quickstart">Quickstart</a> •
   <a href="#citation">Citation</a>
