@@ -192,6 +192,7 @@ Here is the demo about using OceanGPT-o:
         <td><img src="figs/2.png"></td>
     </tr>
 </table>
+
 1. Input your query and upload an image.
 
 2. Choose the generation hyparameters.
@@ -206,6 +207,7 @@ Here is the demo about using OceanGPT-coder:
         <td><img src="figs/4.png"></td>
     </tr>
 </table>
+
 1. Input your query.
 
 2. Choose the generation hyparameters.
