@@ -184,12 +184,22 @@ response = llm.generate(text, sampling_params)
 ### Online Demo <!-- omit in toc --> 
 
 We provide users with an interactive Gradio demo accessible online.
+
+Here is the demo about using OceanGPT-o:
 <table>
     <tr>
         <td><img src="figs/1.png"></td>
         <td><img src="figs/2.png"></td>
     </tr>
 </table>
+Here is the demo about using OceanGPT-coder:
+<table>
+    <tr>
+        <td><img src="figs/3.png"></td>
+        <td><img src="figs/4.png"></td>
+    </tr>
+</table>
+
 
 ### Local WebUI Demo
 You can easily deploy the interactive interface locally using the code we provide.
