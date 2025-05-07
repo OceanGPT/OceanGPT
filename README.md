@@ -200,6 +200,8 @@ Here is the demo about using OceanGPT-o:
 3. Run and get results.
 
 
+
+
 Here is the demo about using OceanGPT-coder:
 <table>
     <tr>
@@ -212,7 +214,7 @@ Here is the demo about using OceanGPT-coder:
 
 2. Choose the generation hyparameters.
   
-3. Run and get results.
+3. Run and get code.
 
 
 ### Local WebUI Demo
