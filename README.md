@@ -28,7 +28,7 @@
 - <a href="#chat-with-our-demo-on-gradio"> 🤗Chat with Our Demo on Gradio</a>
 - <a href="#inference">Inference</a>
     - <a href="#models">Models</a>
-    - <a href="#efficient-inference-with-llamacpp-ollama-vllm">Efficient Inference with llama.cpp, ollama, vLLM</a>
+    - <a href="#efficient-inference-with-sglang-vllm-ollama-llamacpp">Efficient Inference with sglang, vLLM, ollama, llama.cpp</a>
 - <a href="#acknowledgement">Acknowledgement</a>
 - <a href="#limitations">Limitations</a>
 - <a href="#citation">Citation</a>
@@ -227,7 +227,107 @@ Open `https://localhost:7860/` in browser and enjoy the interaction with OceanGP
 
 ## 📌Inference
 
-### Efficient Inference with llama.cpp, ollama, vLLM
+### Efficient Inference with sglang, vLLM, ollama, llama.cpp
+
+
+<details>
+<summary> sglang now officially supports Models based Qwen2.5-VL and Qwen2.5. Click to see. </summary>
+
+1. Install sglang:
+```shell
+pip install --upgrade pip
+pip install uv
+uv pip install "sglang[all]>=0.4.6.post4"
+```
+
+2. Launch Server:
+```python
+import requests
+from openai import OpenAI
+from sglang.test.test_utils import is_in_ci
+
+if is_in_ci():
+    from patch import launch_server_cmd
+else:
+    from sglang.utils import launch_server_cmd
+
+from sglang.utils import wait_for_server, print_highlight, terminate_process
+
+
+server_process, port = launch_server_cmd(
+    "python3 -m sglang.launch_server --model-path zjunlp/OceanGPT-o-7B --host 0.0.0.0"
+)
+
+wait_for_server(f"http://localhost:{port}")
+```
+
+3. Chat with Model
+```python
+import requests
+
+url = f"http://localhost:{port}/v1/chat/completions"
+
+data = {
+    "model": "Qwen/Qwen2.5-VL-7B-Instruct",
+    "messages": [
+        {
+            "role": "user",
+            "content": [
+                {"type": "text", "text": "What’s in this image?"},
+                {
+                    "type": "image_url",
+                    "image_url": {
+                        "url": "https://github.com/sgl-project/sglang/blob/main/test/lang/example_image.png?raw=true"
+                    },
+                },
+            ],
+        }
+    ],
+    "max_tokens": 300,
+}
+
+response = requests.post(url, json=data)
+print_highlight(response.text)
+```
+
+
+  </details>
+
+
+
+<details>
+<summary> vLLM now officially supports Models based Qwen2.5-VL and Qwen2.5. Click to see. </summary>
+
+1. Install vLLM(>=0.7.3):
+```shell
+pip install vllm
+```
+
+2. Run Example:
+* [MLLM](https://docs.vllm.ai/en/latest/getting_started/examples/vision_language.html) 
+* [LLM](https://docs.vllm.ai/en/latest/getting_started/quickstart.html) 
+  </details>
+
+
+<details> 
+<summary>ollama now officially supports Models based Qwen2.5. Click to see.</summary>
+
+Create a file named `Modelfile`
+```shell
+FROM ./OceanGPT.gguf
+TEMPLATE "[INST] {{ .Prompt }} [/INST]"
+```
+
+Create the model in Ollama:
+```shell
+ollama create example -f Modelfile
+```
+
+Running the model:
+```shell
+ollama run example "What is your favourite condiment?"
+```
+  </details>
 
 <details> 
 <summary>llama.cpp now officially supports Models based Qwen2.5-hf convert to gguf. Click to see.</summary>
@@ -253,40 +353,6 @@ Running the model:
     -fa -ngl 80 -n 512
 ```
   </details>
-
-<details> 
-<summary>ollama now officially supports Models based Qwen2.5. Click to see.</summary>
-
-Create a file named `Modelfile`
-```shell
-FROM ./OceanGPT.gguf
-TEMPLATE "[INST] {{ .Prompt }} [/INST]"
-```
-
-Create the model in Ollama:
-```shell
-ollama create example -f Modelfile
-```
-
-Running the model:
-```shell
-ollama run example "What is your favourite condiment?"
-```
-  </details>
-
-<details>
-<summary> vLLM now officially supports Models based Qwen2.5-VL and Qwen2.5. Click to see. </summary>
-
-1. Install vLLM(>=0.7.3):
-```shell
-pip install vllm
-```
-
-2. Run Example:
-* [MLLM](https://docs.vllm.ai/en/latest/getting_started/examples/vision_language.html) 
-* [LLM](https://docs.vllm.ai/en/latest/getting_started/quickstart.html) 
-  </details>
-
 
 ## 🌻Acknowledgement
 
