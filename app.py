@@ -64,7 +64,7 @@ def chat_qwen(questions: list[str], llm_file, temperature: float, top_p: float, 
 
 def chat_qwen_coder(questions: list[str],temperature: float, top_p: float, max_tokens: int):
     sampling_params = SamplingParams(temperature=temperature, top_p=top_p, max_tokens=max_tokens)
-    outputs = llm.generate(questions, sampling_params)[0]
+    outputs = coder.generate(questions, sampling_params)[0]
     generated_text = outputs.outputs[0].text
     return generated_text
  
@@ -170,13 +170,28 @@ def chat_with_qwenvl(img_questions,image_path,temperature: float, top_p: float, 
 
     return outputs[0].outputs[0].text
 
+def check_file_size(file):
+    if file is None:
+        return gr.update(visible=False)
+    if isinstance(file, str):
+        file_path = file
+    elif isinstance(file, dict) and "name" in file:
+        file_path = file.get("name")
+    else:
+        return gr.update(visible=False)
+    size_in_bytes = os.path.getsize(file_path)
+    if size_in_bytes > 1 * 1024 * 1024:
+        return gr.update(value="⚠️ Uploaded file exceeds 1MB, please upload a smaller file.", visible=True)
+    else:
+        return gr.update(visible=False)
 
 def create_demo():
     with gr.Blocks() as demo:
-        with gr.Tab("OceanGPT-V"):    
+        with gr.Tab("OceanGPT-o"):    
             with gr.Row():
                 with gr.Column():
                     mllm_text = gr.Textbox(placeholder="Input text query", label="text input")
+                    file_warning = gr.Markdown("", visible=False)
                     mllm_image = gr.Image(type="filepath", label="image input")
                     temperature = gr.Slider(minimum=0, maximum=2, label="temperature", step=0.1, value=1.2)
                     top_p = gr.Slider(minimum=0, maximum=1, label="top_p", step=0.01, value=0.95)
@@ -184,15 +199,15 @@ def create_demo():
                     clear_button = gr.ClearButton(components=[mllm_text, mllm_image],value="Clear")
                     run_botton = gr.Button("Run")
                 with gr.Column():
-                    response_res = gr.Textbox(label="OceanGPT-V's response")
+                    response_res = gr.Textbox(label="OceanGPT-o's response")
+            
+            mllm_image.change(fn=check_file_size, inputs=mllm_image, outputs=[file_warning])
             
             inputs = [mllm_text, mllm_image, temperature, top_p, max_tokens]
             outputs = [response_res]
             
-            examples = [["Based on the observation of Figure 1 depicting a crucian carp from Loch Rannoch, how can the positioning and appearance of the scars described in the context be used to infer the size and shape of the hook used, and what does their placement suggest about the fish's behavior during its capture and escape?","case_0.png"],
-                        ["Analyze the spatial distribution of the gradient vector field magnitudes illustrated in Fig. 6. How does the variability in color intensity across the figure inform the method of steepest descent, and what are the potential implications for understanding the underlying physical processes or geographic features represented?","case_23.png"],
-                        ["Analyzing Figure 1, which depicts the New England and Corner Rise seamounts within the North Atlantic, could you elaborate on how the spatial distribution of these seamounts, as indicated by the yellow boxes, relates to the historical effects of bottom-trawling fisheries, and what implications this might have for future management strategies in these regions?","case_77.png"],
-                        ["Considering the varying percentage coverage of Marine Protected Areas (MPAs) depicted in Figure 1, which includes both less protected and highly protected regions across different sectors, analyze why some areas like the Southern North Sea showcase significantly higher MPA coverage in comparison to the Northern North Sea. How does this distribution pattern reflect upon the consistency and potential efficacy of the MPAs in achieving marine conservation goals in UK waters?","case_94.png"]]
+            examples = [["As a marine scientist, analyze the provided sonar image of the seabed. Describe the objects you identify and their locations. The objects may belong to the following categories: 'ball', 'circle cage', 'cube', 'cylinder', 'human body', 'metal bucket', 'plane', 'ROV', 'square cage', and 'tyre'.","case_0.jpg"],
+                        ["请分析 CTD 投放站点（以空白方块和空心圆表示）的布局和分布，结合阿尔塔马哈河口海湾水流结构在横断面和沿河方向上的变化。这些站点的设置如何有助于获取关键数据，从而在河道不同区域上估算残余流和净输运？","case_1.png"]]
             
             gr.Examples(
                 examples=examples,
@@ -209,6 +224,7 @@ def create_demo():
             with gr.Row():
                 with gr.Column():
                     llm_text = gr.Textbox(placeholder="Input query", label="text input")
+                    file_warning = gr.Markdown("", visible=False)
                     llm_file = gr.File(label="Upload PDF / Word", file_types=[".pdf", ".docx"])
                     temperature = gr.Slider(minimum=0, maximum=2, label="temperature", step=0.1, value=1.2)
                     top_p = gr.Slider(minimum=0, maximum=1, label="top_p", step=0.01, value=0.95)
@@ -218,13 +234,15 @@ def create_demo():
                 with gr.Column():
                     llm_response_res = gr.Textbox(label="OceanGPT's response")
             
+            llm_file.change(fn=check_file_size, inputs=llm_file, outputs=[file_warning])
+
             inputs = [llm_text, llm_file, temperature, top_p, max_tokens]
             outputs = [llm_response_res]
             
-            examples = [["Which fish species has been suggested as a potential ecological indicator due to its northward distribution with a 0.5oN change? (A) Tarphops oligolepis (B) Liachirus melanospilosa (C) Ostorhinchus fasciatus (D) Johnius taiwanensis"],
-                        ["What impact does global warming have on marine life? (A) Promotes rapid growth (B) Changes migration patterns (C) Increases sea level (D) Reduces carbon dioxide concentration"],
-                        ["What is the primary driver of thermohaline circulation? (A) Temperature and salinity (B) Ocean currents (C) Wind patterns	(D) Amount of sea ice"],
-                        ["What is the effect of atmospheric forcing associated with warm inflow events?	(A) Enhanced absorption of sunlight (B) Increased ocean salinity (C) Weakening of coastal easterlies (D) Increased atmospheric pressure"]]
+            examples = [["Comparison between Cold Seep and Hydrothermal Vent Species"],
+                        ["How to distinguish between naturally formed seafloor rocks and man-made stone architectural remains?"],
+                        ["冷泉与热液喷口物种对比"],
+                        ["如何区分自然形成的海底岩石与人造石质建筑遗迹？"]]
             
             gr.Examples(
                 examples=examples,
@@ -252,10 +270,8 @@ def create_demo():
             inputs = [llm_text, temperature, top_p, max_tokens]
             outputs = [llm_response_res]
             
-            examples = [["请为水下机器人生成MOOS代码，实现如下任务：按照顺序分别往以下几点 60,-40:60,-160:150,-160:180,-100:150,-40，速度为2m/s，任务执行两次，任务完成后返回原点。"],
-                        ["请为水下机器人生成MOOS代码，实现如下任务：先前往3m的深度，然后按照顺序定高2m分别前往以下几点（10，20），（30，40），速度为2m/s，任务执行一次，完成后以定深1m返回原点，而后上浮。"],
-                        ["请为水下机器人生成MOOS代码，实现如下任务：先回到（50,20）点，然后以（15,20）点为圆形，做半径为30的圆周运动，持续时间200s，速度4 m/s。"],
-                        ["请为水下机器人生成MOOS代码，实现如下任务：先下潜10m深度，然后在3m深度，维持航向为180°，并持续3分钟，然后以1m/s的速度回到原点。"]]
+            examples = [["请为水下机器人生成MOOS代码，执行声呐数据采集任务：按照顺序分别往以下几点 60,-40:60,-160:150,-160:180,-100:150,-40，速度为2m/s，任务执行两次，任务完成后返回原点。"],
+                        ["请为水下机器人生成MOOS代码，实现如下任务：先回到（0,0）点，然后以（0,0）点为圆形，做半径为50的圆周运动，持续时间120s。"]]
             
             gr.Examples(
                 examples=examples,
@@ -268,17 +284,20 @@ def create_demo():
             run_botton.click(fn=chat_qwen_coder,
                             inputs=inputs, outputs=outputs)
             
-        with gr.Accordion("Disclaimer"):
+        with gr.Accordion("Limitations"):
             gr.Markdown("""
-            This project is purely an academic exploration rather than a product(本项目仅为学术探索并非产品应用). Please be aware that due to the inherent limitations of large language models, there may be issues such as hallucinations.
+            - The model may have hallucination issues.
+            - Due to limited computational resources, OceanGPT-o currently only supports natural language generation for certain types of sonar images and ocean science images. OceanGPT-coder currently only supports MOOS code generation.
+            - We did not optimize the identity and the model may generate identity information similar to that of Qwen/MiniCPM/LLaMA/GPT series models.
+            - The model's output is influenced by prompt tokens, which may result in inconsistent results across multiple attempts.
             """)
     return demo
 
-description = """"
-# OceanGPT: The open source LLM and MLLM for ocean science.
-**Note**: Due to network restrictions, it is recommended that the size of the uploaded image be less than **1M**.
+description = """
+# Ocean Foundation Models
+Upload documents (Word, PDF, or images) to help OceanGPT provide more accurate answers.
 
-Please refer to our [project](http://oceangpt.zjukg.cn/) for more details.
+Please refer to our [project](http://www.oceangpt.blue/) for more details.
 """
 
 with gr.Blocks(css="h1,p {text-align: center !important;}") as demo:
