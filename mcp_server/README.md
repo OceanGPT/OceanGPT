@@ -63,7 +63,7 @@ powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | ie
 uv init
 uv venv .venv --python 3.11
 .venv\Scripts\activate.bat
-uv pip install requirements.txt
+uv pip install -r requirements.txt
 ```
 
 MacOS or Linux:
@@ -73,7 +73,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 uv init
 uv venv .venv --python 3.11
 .venv\Scripts\activate
-uv pip install requirements.txt
+uv pip install -r requirements.txt
 ```
 
 3. **Launch MCP local server**
