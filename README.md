@@ -181,24 +181,19 @@ response = llm.generate(text, sampling_params)
 
 ## 🤗Chat with Our Demo on Gradio
 
+### Local WebUI Demo
+You can easily deploy the interactive interface locally using the code we provide.
+
+> 🔧 Before running, modify the model path (OceanGPT/OceanGPT-o/OceanGPT-coder's path) in app.py to your local model path.
+
+```python
+python app.py
+```
+Open `https://localhost:7860/` in browser and enjoy the interaction with OceanGPT.
+
 ### Online Demo <!-- omit in toc --> 
 
 We provide users with an interactive Gradio demo accessible online.
-
-Here is the demo about using OceanGPT-o:
-<table>
-    <tr>
-        <td><img src="figs/1.png"></td>
-        <td><img src="figs/2.png"></td>
-    </tr>
-</table>
-
-1. Input your query and upload an image.
-
-2. Choose the generation hyparameters.
-
-3. Run and get results.
-
 
 Here is the demo about using OceanGPT:
 <table>
@@ -214,6 +209,19 @@ Here is the demo about using OceanGPT:
 
 3. Run and get results.
 
+Here is the demo about using OceanGPT-o:
+<table>
+    <tr>
+        <td><img src="figs/1.png"></td>
+        <td><img src="figs/2.png"></td>
+    </tr>
+</table>
+
+1. Input your query and upload an image.
+
+2. Choose the generation hyparameters.
+
+3. Run and get results.
 
 Here is the demo about using OceanGPT-coder:
 <table>
@@ -228,15 +236,6 @@ Here is the demo about using OceanGPT-coder:
 2. Choose the generation hyparameters.
   
 3. Run and get code.
-
-
-### Local WebUI Demo
-You can easily deploy the interactive interface locally using the code we provide.
-
-```python
-python app.py
-```
-Open `https://localhost:7860/` in browser and enjoy the interaction with OceanGPT.
 
 ## 📌Inference
 
