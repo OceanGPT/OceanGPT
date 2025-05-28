@@ -240,9 +240,9 @@ Here is the demo about using OceanGPT-coder:
 
 ## Using MCP Server for Sonar Image Caption
 
-The [mcp_userver](https://github.com/zjunlp/OceanGPT/mcp_server) directory contains the Model Context Protocol (MCP) server for OceanGPT to implement some features.
+The [mcp_userver](https://github.com/zjunlp/OceanGPT/tree/main/mcp_server) directory contains the Model Context Protocol (MCP) server for OceanGPT to implement some features.
 
-For detailed setup instructions and usage examples, see the MCP server [README](https://github.com/zjunlp/OceanGPT/mcp_server/README.md).
+For detailed setup instructions and usage examples, see the MCP server [README](https://github.com/zjunlp/OceanGPT/blob/main/mcp_server/README.md).
 
 ## 📌Inference
 

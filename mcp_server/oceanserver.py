@@ -1,4 +1,4 @@
-# server.py
+# Local by STDIO
 import os
 import requests
 from fastmcp import FastMCP

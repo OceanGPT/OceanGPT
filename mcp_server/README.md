@@ -1,9 +1,11 @@
-# OceanGPT MCP Server
+# 🌊 OceanGPT MCP Server
 
 This is an experimental Model Context Protocol (MCP) server implementation for OceanGPT.
 
-- [OceanGPT MCP Server](#oceangpt-mcp-server)
-  - [🌊 Features](#-features)
+📖 **Contents:**
+
+- [🌊 OceanGPT MCP Server](#-oceangpt-mcp-server)
+  - [🏄 Features](#-features)
     - [Sonar Image Caption](#sonar-image-caption)
     - [Others](#others)
   - [🛰️ Server Deploy](#️-server-deploy)
@@ -16,22 +18,24 @@ This is an experimental Model Context Protocol (MCP) server implementation for O
     - [Others](#others-1)
   - [🏛️ License](#️-license)
 
-## 🌊 Features
+## 🏄 Features
 
 ### Sonar Image Caption
 
 Identify objects by using our Ocean Science Sonar Vision Model.
 
-After **MCP Server** deployed, you can ask your LLM in your **MCP Client** like this:
+After **MCP Server** deployed, you can ask your LLM in your **MCP Client** just like this:
 
 ```
 Please use my MCP Server tool and answer:
 What the sonar image ("https://raw.githubusercontent.com/zjunlp/OceanGPT/main/mcp_server/data/SonarImage002.png") returned by my marine detection robot means? What object could this image be?
 ```
 
-> You can provide a **local** or **remote** image **path** when our MCP server is **local**.
->
-> You can provide a **remote** image **path** when our MCP server is **remote**.
+Make sure your prompt contains at least a sonar image local path or remote url:
+
+When our MCP server is **local**, you can provide a **local path** or **remote url**.
+
+When our MCP server is **remote**, you can provide a **remote url**.
 
 
 
@@ -46,6 +50,8 @@ What the sonar image ("https://raw.githubusercontent.com/zjunlp/OceanGPT/main/mc
 ### Local
 
 > Support both **STDIO** and **SSE** transport type.
+
+Just follow the following steps:
 
 1. **Clone the OceanGPT GitHub repo & Open this  MCP project**
 
@@ -89,16 +95,18 @@ fastmcp dev oceanserver.py
 uv run --directory FULL_PATH/OceanGPT/mcp_server fastmcp run FULL_PATH/OceanGPT/mcp_server/oceanserver.py
 # Note that the slash symbol for Win and Mac paths is different
 
-# choice 3: python run SSE
-python oceanserver_sse.py
-# (Not recommend)
+# choice 3: python run with SSE
+# Modify oceanserver.py: 
+# mcp.run() --> mcp.run(transport="sse")
+python oceanserver.py
+# The default local SSE URL at http://127.0.0.1:8000
 ```
 
 4. **Select your MCP client & add `json` config**
 
-Please refer to the **next chapter** for details.
+Please refer to the [next chapter](#-client-use) for details.
 
-The `json` file usually look like:
+The `json` file usually looks like:
 
 ```json
 {
@@ -120,6 +128,8 @@ The `json` file usually look like:
 
 > Support **SSE** Transport Type, and please ensure that your LLM has access to **international** networks.
 
+You actually only need to complete just one following step:
+
 1. ***(Optional)* Test remote server by MCP Inspector**
 
 ```bash
@@ -132,9 +142,9 @@ npx @modelcontextprotocol/inspector
 
 2. **Select your MCP client & add `json` config (Without any other steps)**
 
-Please refer to the **next chapter** for details.
+Please refer to the [next chapter](#-client-use) for details.
 
-The `json` file usually look like:
+The `json` file usually looks like:
 
 ```json
 {
@@ -179,7 +189,7 @@ All these MCP client you just need modify their `json` config file.
 }
 ```
 
-`FULL_PATH` is your local path.
+`FULL_PATH` is your local path. Note that the slash symbol for Win and Mac paths is different.
 
 **Remote json config:**
 
@@ -221,7 +231,7 @@ All these MCP client you just need modify their `json` config file.
 }
 ```
 
-`FULL_PATH` is your local path.
+`FULL_PATH` is your local path. Note that the slash symbol for Win and Mac paths is different.
 
 
 
@@ -258,7 +268,7 @@ All these MCP client you just need modify their `json` config file.
 }
 ```
 
-`FULL_PATH` is your local path.
+`FULL_PATH` is your local path. Note that the slash symbol for Win and Mac paths is different.
 
 **Remote json config:**
 
@@ -289,4 +299,6 @@ All these MCP client you just need modify their `json` config file.
 
 ## 🏛️ License
 
-This MCP project is licensed under the same license as the parent full OceanGPT project. 🐱
+This MCP project is licensed under the same license as the parent full OceanGPT project.
+
+🐱
