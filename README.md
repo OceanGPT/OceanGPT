@@ -200,13 +200,26 @@ Here is the demo about using OceanGPT-o:
 3. Run and get results.
 
 
+Here is the demo about using OceanGPT:
+<table>
+    <tr>
+        <td><img src="figs/3.png"></td>
+        <td><img src="figs/4.png"></td>
+    </tr>
+</table>
+
+1. Input your query (optional: upload an Word/PDF).
+
+2. Choose the generation hyparameters.
+
+3. Run and get results.
 
 
 Here is the demo about using OceanGPT-coder:
 <table>
     <tr>
-        <td><img src="figs/3.png"></td>
-        <td><img src="figs/4.png"></td>
+        <td><img src="figs/5.png"></td>
+        <td><img src="figs/6.png"></td>
     </tr>
 </table>
 
