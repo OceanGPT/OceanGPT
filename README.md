@@ -15,7 +15,7 @@
 </p>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-![](https://img.shields.io/badge/PRs-Welcome-red)  
+![](https://img.shields.io/badge/PRs-Welcome-red)
 
 
 </div>
@@ -26,7 +26,7 @@
 - <a href="#overview">Overview</a>
 - <a href="#quickstart">Quickstart</a>
 - <a href="#chat-with-our-demo-on-gradio"> 🤗Chat with Our Demo on Gradio</a>
-- <a href="#using-mcp-server-for-sonar-image-caption"></a>
+- <a href="#using-mcp-server-for-sonar-image-caption">Using MCP Server for Sonar Image Caption</a>
 - <a href="#inference">Inference</a>
     - <a href="#models">Models</a>
     - <a href="#efficient-inference-with-sglang-vllm-ollama-llamacpp">Efficient Inference with sglang, vLLM, ollama, llama.cpp</a>
@@ -48,9 +48,9 @@
 ### Models
 
 | Model Name        |        ModelScope                                                                                                              | HuggingFace                                                               |
-|-------------------|-----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|     
+|-------------------|-----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
 | OceanGPT-o-7B (based on Qwen, **recommended**)                      |<a href="https://modelscope.cn/models/ZJUNLP/OceanGPT-o-7B" target="_blank">7B</a>   | <a href="https://huggingface.co/zjunlp/OceanGPT-o-7B" target="_blank">7B</a> |
-| OceanGPT-coder-7B (based on Qwen, **recommended**)                                                                      | <a href="https://modelscope.cn/models/ZJUNLP/OceanGPT-coder-7B" target="_blank">7B</a>                                                                        | <a href="https://huggingface.co/zjunlp/OceanGPT-coder-7B" target="_blank">7B</a>     
+| OceanGPT-coder-7B (based on Qwen, **recommended**)                                                                      | <a href="https://modelscope.cn/models/ZJUNLP/OceanGPT-coder-7B" target="_blank">7B</a>                                                                        | <a href="https://huggingface.co/zjunlp/OceanGPT-coder-7B" target="_blank">7B</a>
 | OceanGPT-basic-8B (based on Qwen, **recommended**) |<a href="https://www.modelscope.cn/models/ZJUNLP/OceanGPT-basic-8B" target="_blank">8B</a>   | <a href="https://huggingface.co/zjunlp/OceanGPT-basic-8B" target="_blank">8B</a> |
 | OceanGPT-basic-14B (based on Qwen, legacy) |<a href="https://modelscope.cn/models/ZJUNLP/OceanGPT-14B-v0.1" target="_blank">14B</a>   | <a href="https://huggingface.co/zjunlp/OceanGPT-14B-v0.1" target="_blank">14B</a> |
 | OceanGPT-basic-7B (based on Qwen, legacy) |  <a href="https://modelscope.cn/models/ZJUNLP/OceanGPT-7b-v0.2" target="_blank">7B</a>    |  <a href="https://huggingface.co/zjunlp/OceanGPT-7b-v0.2" target="_blank">7B</a>   |
@@ -117,7 +117,7 @@ git clone https://www.modelscope.cn/ZJUNLP/OceanGPT-14B-v0.1.git
 ```
 
 ### Inference
-#### Inference by HuggingFace	
+#### Inference by HuggingFace
 ```python
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import torch
@@ -192,7 +192,7 @@ python app.py
 ```
 Open `https://localhost:7860/` in browser and enjoy the interaction with OceanGPT.
 
-### Online Demo <!-- omit in toc --> 
+### Online Demo <!-- omit in toc -->
 
 We provide users with an interactive Gradio demo accessible online.
 
@@ -235,7 +235,7 @@ Here is the demo about using OceanGPT-coder:
 1. Input your query.
 
 2. Choose the generation hyparameters.
-  
+
 3. Run and get code.
 
 ## Using MCP Server for Sonar Image Caption
@@ -323,12 +323,12 @@ pip install vllm
 ```
 
 2. Run Example:
-* [MLLM](https://docs.vllm.ai/en/latest/getting_started/examples/vision_language.html) 
-* [LLM](https://docs.vllm.ai/en/latest/getting_started/quickstart.html) 
+* [MLLM](https://docs.vllm.ai/en/latest/getting_started/examples/vision_language.html)
+* [LLM](https://docs.vllm.ai/en/latest/getting_started/quickstart.html)
   </details>
 
 
-<details> 
+<details>
 <summary>ollama now officially supports Models based Qwen2.5. Click to see.</summary>
 
 Create a file named `Modelfile`
@@ -348,7 +348,7 @@ ollama run example "What is your favourite condiment?"
 ```
   </details>
 
-<details> 
+<details>
 <summary>llama.cpp now officially supports Models based Qwen2.5-hf convert to gguf. Click to see.</summary>
 
 Download OceanGPT PyTorch model from huggingface to "OceanGPT" folder.
