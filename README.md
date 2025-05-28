@@ -26,6 +26,7 @@
 - <a href="#overview">Overview</a>
 - <a href="#quickstart">Quickstart</a>
 - <a href="#chat-with-our-demo-on-gradio"> 🤗Chat with Our Demo on Gradio</a>
+- <a href="#using-mcp-server-for-sonar-image-caption"></a>
 - <a href="#inference">Inference</a>
     - <a href="#models">Models</a>
     - <a href="#efficient-inference-with-sglang-vllm-ollama-llamacpp">Efficient Inference with sglang, vLLM, ollama, llama.cpp</a>
@@ -236,6 +237,12 @@ Here is the demo about using OceanGPT-coder:
 2. Choose the generation hyparameters.
   
 3. Run and get code.
+
+## Using MCP Server for Sonar Image Caption
+
+The [mcp_userver](https://github.com/zjunlp/OceanGPT/mcp_server) directory contains the Model Context Protocol (MCP) server for OceanGPT to implement some features.
+
+For detailed setup instructions and usage examples, see the MCP server [README](https://github.com/zjunlp/OceanGPT/mcp_server/README.md).
 
 ## 📌Inference
 
