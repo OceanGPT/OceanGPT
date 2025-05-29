@@ -33,7 +33,6 @@ def getSonarClassify(image_path_or_url: str) -> str:
 
     except Exception as e:
         return f"Error: {e}"
-s
 # @mcp.tool()
 # def otherTool():
 #     pass
