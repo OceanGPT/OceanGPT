@@ -35,6 +35,7 @@
 - <a href="#citation">Citation</a>
 
 ## 🔔News
+- **2025-05-29, we release the OceanGPT MCP Server, support sonar image interpretation by deploy MCP service**
 - **2025-04-20, we release the OceanGPT-o-7B and OceanGPT-coder-7B.**
 - **2025-02-01, we collect sonar data for model training and test OceanGPT-coder.**
 - **2024-12-01, we collect more publicly available sonar data and scientific images for model training.**
