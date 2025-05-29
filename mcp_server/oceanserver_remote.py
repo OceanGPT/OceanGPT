@@ -15,8 +15,8 @@ mcp = FastMCP("OceanGPT-MCP-Remote")
 @mcp.tool()
 def getSonarClassify(image_path_or_url: str) -> str:
     """
-    Classify sonar image by using professional Ocean Science sonar image classification model.
-    Supports both local file paths and remote image URLs.
+    Classify sonar image by using the professional Ocean Science Sonar Image Classification Model.
+    Supports both local file path and remote image URL.
     """
     url = os.environ["SONAR_CLASSIFY_URL"]
 

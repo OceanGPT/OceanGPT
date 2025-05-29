@@ -11,8 +11,8 @@ mcp.dependencies = []
 @mcp.tool()
 def getSonarClassify(image_path_or_url: str) -> str:
     """
-    Classify sonar image by using professional Ocean Science sonar image classification model.
-    Supports both local file paths and remote image URLs.
+    Classify sonar image by using the professional Ocean Science Sonar Image Classification Model.
+    Supports both local file path and remote image URL.
     """
     url = os.environ.get("SONAR_MODEL_URL", "http://121.41.117.246:8844/classify")
 
@@ -33,7 +33,7 @@ def getSonarClassify(image_path_or_url: str) -> str:
 
     except Exception as e:
         return f"Error: {e}"
-
+s
 # @mcp.tool()
 # def otherTool():
 #     pass
