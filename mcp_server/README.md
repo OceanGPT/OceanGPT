@@ -211,7 +211,7 @@ All these MCP client you just need modify their `json` config file.
 {
   "mcpServers": {
     "OceanGPT_Remote": {
-      "url": "OUR_REMOTE_URL",
+      "url": "OUR_REMOTE_URL"
     }
   }
 }
@@ -220,7 +220,7 @@ All these MCP client you just need modify their `json` config file.
 `OUR_REMOTE_URL` currently is:
 
 ```
- https://oceangpt-mcp.onrender.com/sse
+https://oceangpt-mcp.onrender.com/sse
 ```
 
 
@@ -308,7 +308,7 @@ All these MCP client you just need modify their `json` config file.
 `OUR_REMOTE_URL` currently is:
 
 ```
- https://oceangpt-mcp.onrender.com/sse
+https://oceangpt-mcp.onrender.com/sse
 ```
 
 
