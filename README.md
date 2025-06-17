@@ -35,7 +35,8 @@
 - <a href="#citation">Citation</a>
 
 ## 🔔News
-- **2025-05-29, we release the OceanGPT MCP Server, support sonar image interpretation by deploy MCP service**
+- **2025-06-17, we released the [OceanGPT-coder-0.6B](https://huggingface.co/zjunlp/OceanGPT-coder-0.6B).**
+- **2025-05-29, We deploy the OceanGPT MCP Server to support sonar image interpretation.**
 - **2025-04-20, we release the OceanGPT-o-7B and OceanGPT-coder-7B.**
 - **2025-02-01, we collect sonar data for model training and test OceanGPT-coder.**
 - **2024-12-01, we collect more publicly available sonar data and scientific images for model training.**
@@ -56,7 +57,7 @@
 | OceanGPT-basic-14B (based on Qwen, legacy) |<a href="https://modelscope.cn/models/ZJUNLP/OceanGPT-14B-v0.1" target="_blank">14B</a>   | <a href="https://huggingface.co/zjunlp/OceanGPT-14B-v0.1" target="_blank">14B</a> |
 | OceanGPT-basic-7B (based on Qwen, legacy) |  <a href="https://modelscope.cn/models/ZJUNLP/OceanGPT-7b-v0.2" target="_blank">7B</a>    |  <a href="https://huggingface.co/zjunlp/OceanGPT-7b-v0.2" target="_blank">7B</a>   |
 | OceanGPT-basic-2B (based on MiniCPM, legacy) | <a href="https://modelscope.cn/models/ZJUNLP/OceanGPT-2B-v0.1" target="_blank">2B</a>    |  <a href="https://huggingface.co/zjunlp/OceanGPT-2B-v0.1" target="_blank">2B</a>   |
-
+| OceanGPT-coder-0.6B (based on Qwen3) | <a href="https://www.modelscope.cn/models/ZJUNLP/OceanGPT-coder-0.6B" target="_blank">0.6B</a>    |  <a href="https://https://huggingface.co/zjunlp/OceanGPT-coder-0.6B" target="_blank">0.6B</a>   |
 
 ---
 
@@ -385,7 +386,8 @@ Thanks for their great contributions!
 
 - The model may have hallucination issues.
 
-- Due to limited computational resources, OceanGPT-o currently only supports natural language generation for certain types of sonar images and ocean science images. OceanGPT-coder currently only supports MOOS code generation.
+- Due to limited computational resources, OceanGPT-o currently only supports natural language generation for certain types of sonar images and ocean science images. OceanGPT-coder currently only supports `MOOS` code generation.
+
 - We did not optimize the identity and the model may generate identity information similar to that of Qwen/MiniCPM/LLaMA/GPT series models.
 
 - The model's output is influenced by prompt tokens, which may result in inconsistent results across multiple attempts.
