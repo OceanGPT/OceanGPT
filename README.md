@@ -57,7 +57,7 @@
 | OceanGPT-basic-14B (based on Qwen, legacy) |<a href="https://modelscope.cn/models/ZJUNLP/OceanGPT-14B-v0.1" target="_blank">14B</a>   | <a href="https://huggingface.co/zjunlp/OceanGPT-14B-v0.1" target="_blank">14B</a> |
 | OceanGPT-basic-7B (based on Qwen, legacy) |  <a href="https://modelscope.cn/models/ZJUNLP/OceanGPT-7b-v0.2" target="_blank">7B</a>    |  <a href="https://huggingface.co/zjunlp/OceanGPT-7b-v0.2" target="_blank">7B</a>   |
 | OceanGPT-basic-2B (based on MiniCPM, legacy) | <a href="https://modelscope.cn/models/ZJUNLP/OceanGPT-2B-v0.1" target="_blank">2B</a>    |  <a href="https://huggingface.co/zjunlp/OceanGPT-2B-v0.1" target="_blank">2B</a>   |
-| OceanGPT-coder-0.6B (based on Qwen3) | <a href="https://www.modelscope.cn/models/ZJUNLP/OceanGPT-coder-0.6B" target="_blank">0.6B</a>    |  <a href="https://https://huggingface.co/zjunlp/OceanGPT-coder-0.6B" target="_blank">0.6B</a>   |
+| OceanGPT-coder-0.6B (based on Qwen3) | <a href="https://www.modelscope.cn/models/ZJUNLP/OceanGPT-coder-0.6B" target="_blank">0.6B</a>    |  <a href="https://huggingface.co/zjunlp/OceanGPT-coder-0.6B" target="_blank">0.6B</a>   |
 
 ---
 
