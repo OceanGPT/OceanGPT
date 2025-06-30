@@ -408,4 +408,6 @@ Please cite the following paper if you use OceanGPT in your work.
 # Contributors
 
 [Ningyu Zhang](https://person.zju.edu.cn/en/ningyu), Yida Xue, Zhen Bi, Xiaozhuan Liang,  Zhisong Qiu, Chenxi Wang, Kewei Xu, Xiangyuan Ru, Jintian Zhang, Shuofei Qiao, Guozhou Zheng, Huajun Chen
+
+
 Community Contributors: Junjie Zheng
