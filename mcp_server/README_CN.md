@@ -82,7 +82,7 @@ uv pip install -r requirements.txt
 如果环境已准备好，直接激活即可：
 
 ```bash
-.venv\\Scripts\\activate.ba
+.venv\\Scripts\\activate.bat
 ```
 
 **MacOS 或 Linux 系统：**
