@@ -9,6 +9,7 @@
   <a href="https://arxiv.org/abs/2310.02031">Paper</a> •
   <a href="https://huggingface.co/collections/zjunlp/oceangpt-664cc106358fdd9f09aa5157">Models</a> •
   <a href="http://oceangpt.blue/">Web</a> •
+  <a href="https://ajar-mayflower-ac1.notion.site/OceanGPT-1f8204ef4eed80db8842c3925dc9b814">Manual</a> •
   <a href="#overview">Overview</a> •
   <a href="#quickstart">Quickstart</a> •
   <a href="#citation">Citation</a>
@@ -19,6 +20,12 @@
 
 
 </div>
+
+---
+
+**✨ [OceanGPT Beginner's Guide ](https://ajar-mayflower-ac1.notion.site/OceanGPT-1f8204ef4eed80db8842c3925dc9b814)officially published!**
+
+We have published a detailed beginner's guide for OceanGPT, which will help you quickly grasp the model’s capabilities and begin applying this ocean-focused large model in your work.
 
 ## Table of Contents
 
@@ -35,7 +42,7 @@
 - <a href="#citation">Citation</a>
 
 ## 🔔News
-- **2025-06-17, we released the OceanGPT-coder-0.6B.**
+- **2025-06-17, we release the OceanGPT-coder-0.6B.**
 - **2025-05-29, we deploy the OceanGPT MCP Server to support sonar image interpretation.**
 - **2025-04-20, we release the OceanGPT-o-7B and OceanGPT-coder-7B.**
 - **2025-02-01, we collect sonar data for model training and test OceanGPT-coder.**
