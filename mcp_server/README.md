@@ -181,7 +181,7 @@ python oceanserver.py
 
 4. **Select your MCP client & add `json` config**
 
-Please refer to [the next chapter](#-client-use) for details.
+Please refer to [the next chapter](#-client-host) for details.
 
 The `json` file may look like:
 
