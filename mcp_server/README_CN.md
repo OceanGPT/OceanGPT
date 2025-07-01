@@ -1,4 +1,4 @@
-# OceanGPT MCP 服务器用户手册
+# OceanGPT MCP 用户手册
 
 [English](https://github.com/zjunlp/OceanGPT/blob/main/mcp_server/README.md) | 简体中文
 
@@ -9,15 +9,15 @@
 
 
 **目录**
-- [OceanGPT MCP 服务器用户手册](#oceangpt-mcp-服务器用户手册)
-  - [服务器部署](#服务器部署)
+- [OceanGPT MCP 用户手册](#oceangpt-mcp-用户手册)
+  - [服务端部署](#服务端部署)
     - [远程部署](#远程部署)
     - [本地部署](#本地部署)
-  - [客户端使用](#客户端使用)
+  - [客户端调用](#客户端调用)
 
 
 
-## 服务器部署
+## 服务端部署
 
 ### 远程部署
 
@@ -30,7 +30,7 @@
 ```bash
 # 请确保已安装 MCP Inspector
 npx @modelcontextprotocol/inspector
-# 可在 <http://127.0.0.1:6274> 进行测试
+# 可在 http://127.0.0.1:6274 进行测试
 ```
 
 1. **选择 MCP 客户端并添加 `json` 配置（无需其他额外操作）**
@@ -63,7 +63,7 @@ npx @modelcontextprotocol/inspector
 1. **克隆 OceanGPT 仓库并进入 MCP 项目目录**
 
 ```bash
-git clone <https://github.com/zjunlp/OceanGPT.git>
+git clone https://github.com/zjunlp/OceanGPT.git
 cd OceanGPT/mcp_server
 ```
 
@@ -72,10 +72,10 @@ cd OceanGPT/mcp_server
 **Windows 系统：**
 
 ```bash
-powershell -ExecutionPolicy ByPass -c "irm <https://astral.sh/uv/install.ps1> | iex"
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 uv init
 uv venv .venv --python 3.11
-.venv\\Scripts\\activate.bat
+.venv\Scripts\activate.bat
 uv pip install -r requirements.txt
 ```
 
@@ -88,7 +88,7 @@ uv pip install -r requirements.txt
 **MacOS 或 Linux 系统：**
 
 ```bash
-curl -LsSf <https://astral.sh/uv/install.sh> | sh
+curl -LsSf https://astral.sh/uv/install.sh | sh
 uv init
 uv venv .venv --python 3.11
 source .venv/bin/activate
@@ -108,9 +108,9 @@ source .venv/bin/activate
 ```bash
 # 选项 1：使用 MCP Inspector（推荐）
 # 注意路径中不要出错
-.\\.venv\\Scripts\\fastmcp.exe dev oceanserver.py
+.\.venv\Scripts\fastmcp.exe dev oceanserver.py
 # 或：fastmcp dev oceanserver.py
-# 可在 <http://127.0.0.1:6274> 进行测试
+# 可在 http://127.0.0.1:6274 进行测试
 
 # 选项 2：使用 uv run 启动
 uv run --directory FULL_PATH/OceanGPT/mcp_server fastmcp run FULL_PATH/OceanGPT/mcp_server/oceanserver.py
@@ -120,12 +120,12 @@ uv run --directory FULL_PATH/OceanGPT/mcp_server fastmcp run FULL_PATH/OceanGPT/
 # 修改 oceanserver.py 文件：
 # 将 mcp.run() 替换为 mcp.run(transport="sse")
 python oceanserver.py
-# 默认本地 SSE URL 为 <http://127.0.0.1:8000>
+# 默认本地 SSE URL 为 http://127.0.0.1:8000
 ```
 
 1. **选择 MCP 客户端并添加 `json` 配置**
 
-具体操作请参见下一章节（客户端使用）。
+具体操作请参见下一章节（客户端调用）。
 
 配置文件示例：
 
@@ -145,9 +145,9 @@ python oceanserver.py
 
 
 
-## 客户端使用
+## 客户端调用
 
-> 本章以较为通用的 [Cursor](https://www.cursor.com/cn) 为例，支持本地与远程服务器。
+> 支持本地与远程服务器，本章则以 [Cursor](https://www.cursor.com/cn) 为例。
 
 所有 MCP 客户端仅需修改其 `json` 配置文件即可。
 
@@ -171,7 +171,7 @@ python oceanserver.py
 }
 ```
 
-其中 `FULL_PATH` 是你的本地路径。注意 Windows 和 Linux/Mac 的路径符号不同，确保路径无误。
+其中 `FULL_PATH` 是本地路径。注意 Windows 和 Linux、MacOS 路径符号不同，请确保路径无误。
 
 **远程配置示例：**
 
@@ -185,7 +185,7 @@ python oceanserver.py
 }
 ```
 
-目前 `OUR_REMOTE_URL` 为：
+👇 目前 `OUR_REMOTE_URL` 为：
 
 ```
 https://oceangpt-mcp.onrender.com/sse
