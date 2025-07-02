@@ -34,7 +34,20 @@ This is an experimental Model Context Protocol ([MCP](https://modelcontextprotoc
 
 ### Sonar Image Caption
 
-Identify objects by using our Ocean Science Sonar Vision Model.
+Our Ocean Science Sonar Vision Model is designed to identify various underwater objects with high precision. It is capable of recognizing at least 10 types of underwater targets commonly encountered in ocean engineering and marine research scenarios, including the following categories:
+
+| English Name | 中文名称 |
+|:---:|:---:|
+| Bottle       | 瓶状物    |
+| Cube         | 立方体    |
+| Cylinder     | 圆柱体    |
+| Hook         | 钩状物    |
+| Pipeline     | 管道     |
+| Plane        | 飞机     |
+| Propeller    | 螺旋桨    |
+| Ship         | 船体     |
+| Tire         | 轮胎     |
+| Valve        | 阀门     |
 
 After MCP Server deployed, you can ask your LLM just like this:
 
