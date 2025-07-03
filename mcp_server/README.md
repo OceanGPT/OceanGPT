@@ -116,6 +116,12 @@ The `json` file may look like:
 https://oceangpt-mcp.onrender.com/sse
 ```
 
+or:
+
+```
+https://oceangpy-c-cite-mwlqnwjval.cn-hangzhou.fcapp.run/sse
+```
+
 👆
 
 > [!NOTE]
