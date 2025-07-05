@@ -190,3 +190,11 @@ python oceanserver.py
 ```
 https://oceangpt-mcp.onrender.com/sse
 ```
+
+或者：
+
+```
+https://oceangpy-c-cite-mwlqnwjval.cn-hangzhou.fcapp.run/sse
+```
+
+（请选用更稳定的那个）
