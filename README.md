@@ -1,6 +1,6 @@
 
 <div align="center">
-<img src="figs/logo.jpg" width="300px">
+<img src="figs/logo.jpg" width="300px" href="http://oceangpt.ORG/">
 
 **沧渊海洋基础大模型：Ocean Foundation Models**
 
@@ -8,7 +8,7 @@
   <a href="https://github.com/zjunlp/OceanGPT">Project</a> •
   <a href="https://arxiv.org/abs/2310.02031">Paper</a> •
   <a href="https://huggingface.co/collections/zjunlp/oceangpt-664cc106358fdd9f09aa5157">Models</a> •
-  <a href="http://oceangpt.blue/">Web</a> •
+  <a href="http://oceangpt.ORG/">Web</a> •
   <a href="https://ajar-mayflower-ac1.notion.site/OceanGPT-1f8204ef4eed80db8842c3925dc9b814">Manual</a> •
   <a href="#overview">Overview</a> •
   <a href="#quickstart">Quickstart</a> •
