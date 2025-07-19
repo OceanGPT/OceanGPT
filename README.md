@@ -1,8 +1,8 @@
 
 <div align="center">
-<img src="figs/logo.jpg" width="300px" href="http://oceangpt.ORG/">
+<a href="http://oceangpt.ORG/"><img src="figs/logo.jpg" width="300px" ></a>
 
-**沧渊海洋基础大模型：Ocean Foundation Models**
+<a href="http://oceangpt.ORG/">**沧渊海洋基础大模型：Ocean Foundation Models**</a>
 
 <p align="center">
   <a href="https://github.com/zjunlp/OceanGPT">Project</a> •
