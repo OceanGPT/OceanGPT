@@ -2,7 +2,7 @@
 <div align="center">
 <a href="http://oceangpt.ORG/"><img src="figs/logo.jpg" width="300px" ></a>
 
-<a href="http://oceangpt.ORG/">**沧渊海洋基础大模型：Ocean Foundation Models**</a>
+<a href="http://oceangpt.ORG/" style="text-decoration: none;">**沧渊海洋基础大模型：Ocean Foundation Models**</a>
 
 <p align="center">
   <a href="https://github.com/zjunlp/OceanGPT">Project</a> •
