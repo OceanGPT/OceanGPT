@@ -101,87 +101,277 @@ pip install -r requirements.txt
 ### Download the model
 #### Download from HuggingFace
 ```shell
+# use git lfs
 git lfs install
-git clone https://huggingface.co/zjunlp/OceanGPT-14B-v0.1
+git clone https://huggingface.co/zjunlp/OceanGPT-o-7B
 ```
 or
+```shell
+# use huggingface-cli
+pip install -U huggingface_hub
+huggingface-cli download --resume-download zjunlp/OceanGPT-o-7B --local-dir OceanGPT-o-7B --local-dir-use-symlinks False
 ```
-huggingface-cli download --resume-download zjunlp/OceanGPT-14B-v0.1 --local-dir OceanGPT-14B-v0.1 --local-dir-use-symlinks False
-```
-#### Download from WiseModel
+<!-- #### Download from WiseModel
 ```shell
 git lfs install
 git clone https://www.wisemodel.cn/zjunlp/OceanGPT-14B-v0.1.git
-```
+``` -->
 #### Download from ModelScope
 ```shell
+# use git lfs
 git lfs install
-git clone https://www.modelscope.cn/ZJUNLP/OceanGPT-14B-v0.1.git
+git clone https://www.modelscope.cn/ZJUNLP/OceanGPT-o-7B.git
+```
+or
+```shell
+# use modelscope
+pip install modelscope
+modelscope download --model ZJUNLP/OceanGPT-o-7B
 ```
 
 ### Inference
-#### Inference by HuggingFace
+#### OceanGPT-basic-8B
 ```python
 from transformers import AutoModelForCausalLM, AutoTokenizer
-import torch
 
-device = "cuda" # the device to load the model onto
-path = 'YOUR-MODEL-PATH'
+model_name = "zjunlp/OceanGPT-basic-8B"
 
+# load the tokenizer and the model
+tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForCausalLM.from_pretrained(
-    path,
-    torch_dtype=torch.bfloat16,
+    model_name,
+    torch_dtype="auto",
     device_map="auto"
 )
-tokenizer = AutoTokenizer.from_pretrained(path)
 
-prompt = "Which is the largest ocean in the world?"
+question = "<Your Question>"
 messages = [
-    {"role": "system", "content": "You are a helpful assistant."},
-    {"role": "user", "content": prompt}
+    {"role": "user", "content": question}
+]
+
+text = tokenizer.apply_chat_template(
+    messages,
+    tokenize=False,
+    add_generation_prompt=True,
+    enable_thinking=False 
+)
+
+model_inputs = tokenizer([text], return_tensors="pt").to(model.device)
+
+generated_ids = model.generate(
+    **model_inputs,
+    max_new_tokens=8192
+)
+output_ids = generated_ids[0][len(model_inputs.input_ids[0]):].tolist() 
+
+try:
+    index = len(output_ids) - output_ids[::-1].index(151668)  # </think> token ID
+except ValueError:
+    index = 0
+
+content = tokenizer.decode(output_ids[index:], skip_special_tokens=True).strip("\n")
+print(content)
+```
+
+#### OceanGPT-coder-7B
+```python
+from transformers import AutoModelForCausalLM, AutoTokenizer
+model = AutoModelForCausalLM.from_pretrained(
+    "zjunlp/OceanGPT-coder-7B", torch_dtype=torch.float16, device_map="auto"
+)
+tokenizer = AutoTokenizer.from_pretrained("zjunlp/OceanGPT-coder-7B")
+messages = [
+    {"role": "system", "content": "You are Qwen, created by Alibaba Cloud. You are a helpful assistant."},
+    {"role": "user", "content": "请为水下机器人生成MOOS代码，实现如下任务：先回到（50,20）点，然后以（15,20）点为圆形，做半径为30的圆周运动，持续时间200s，速度4 m/s。"}
 ]
 text = tokenizer.apply_chat_template(
     messages,
     tokenize=False,
     add_generation_prompt=True
 )
-model_inputs = tokenizer([text], return_tensors="pt").to(device)
-
+model_inputs = tokenizer([text], return_tensors="pt").to(model.device)
 generated_ids = model.generate(
-    model_inputs.input_ids,
-    max_new_tokens=512
+    **model_inputs,
+    top_p=0.6,
+    temperature=0.6,
+    max_new_tokens=2048
 )
 generated_ids = [
     output_ids[len(input_ids):] for input_ids, output_ids in zip(model_inputs.input_ids, generated_ids)
 ]
-
 response = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
+print(response)
 ```
-#### Inference by vllm
+#### OceanGPT-o-7B
+```shell
+# It's highly recommanded to use `[decord]` feature for faster video loading.
+pip install qwen-vl-utils[decord]==0.0.8
+pip install transformers
+```
 ```python
-from transformers import AutoTokenizer
-from vllm import LLM, SamplingParams
+from transformers import Qwen2_5_VLForConditionalGeneration, AutoTokenizer, AutoProcessor
+from qwen_vl_utils import process_vision_info
 
-path = 'YOUR-MODEL-PATH'
-
-tokenizer = AutoTokenizer.from_pretrained(path)
-
-prompt = "Which is the largest ocean in the world?"
-messages = [
-    {"role": "system", "content": "You are a helpful assistant."},
-    {"role": "user", "content": prompt}
-]
-text = tokenizer.apply_chat_template(
-    messages,
-    tokenize=False,
-    add_generation_prompt=True
+model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
+    "zjunlp/OceanGPT-o-7B", torch_dtype=torch.bfloat16, device_map="auto"
 )
+processor = AutoProcessor.from_pretrained("zjunlp/OceanGPT-o-7B")
 
-sampling_params = SamplingParams(temperature=0.8, top_k=50)
-llm = LLM(model=path)
+messages = [
+    {
+        "role": "user",
+        "content": [
+            {
+                "type": "image",
+                "image": "file:///path/to/your/image.jpg",
+            },
+            {"type": "text", "text": "Describe this image."},
+        ],
+    }
+]
 
-response = llm.generate(text, sampling_params)
+text = processor.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+image_inputs, video_inputs = process_vision_info(messages)
+inputs = processor(
+    text=[text],
+    images=image_inputs,
+    videos=video_inputs,
+    padding=True,
+    return_tensors="pt",
+)
+inputs = inputs.to("cuda")
+
+
+generated_ids = model.generate(**inputs, max_new_tokens=128)
+generated_ids_trimmed = [
+    out_ids[len(in_ids):] for in_ids, out_ids in zip(inputs.input_ids, generated_ids)
+]
+output_text = processor.batch_decode(
+    generated_ids_trimmed, skip_special_tokens=True, clean_up_tokenization_spaces=False
+)
+print(output_text)
 ```
+
+#### Inference by sglang, vllm, ollama and llama.cpp
+##### SGLang
+1. Install SGLang
+    ```shell
+    pip install --upgrade pip
+    pip install uv
+    uv pip install "sglang[all]>=0.4.6.post4"
+    ```
+2. Start SGLang Service
+    ```python
+    import requests
+    from openai import OpenAI
+    from sglang.test.test_utils import is_in_ci
+
+    if is_in_ci():
+        from patch import launch_server_cmd
+    else:
+        from sglang.utils import launch_server_cmd
+
+    from sglang.utils import wait_for_server, print_highlight, terminate_process
+
+    server_process, port = launch_server_cmd(
+        "python3 -m sglang.launch_server --model-path zjunlp/OceanGPT-o-7B --host 0.0.0.0"
+    )
+
+    wait_for_server(f"http://localhost:{port}")
+    ```
+3. Chat
+    ```python
+    import requests
+
+    url = f"http://localhost:{port}/v1/chat/completions"
+
+    data = {
+        "model": "zjunlp/OceanGPT-o-7B",
+        "messages": [
+            {
+                "role": "user",
+                "content": [
+                    {"type": "text", "text": "What’s in this image?"},
+                    {
+                        "type": "image_url",
+                        "image_url": {
+                            "url": "https://github.com/sgl-project/sglang/blob/main/test/lang/example_image.png?raw=true"
+                        },
+                    },
+                ],
+            }
+        ],
+        "max_tokens": 300,
+    }
+
+    response = requests.post(url, json=data)
+    print_highlight(response.text)
+    ```
+##### vLLM
+1. Install vLLM
+    ```shell
+    pip install --upgrade pip
+    pip install uv
+    uv pip install vllm --torch-backend=auto
+    ```
+2. Inference with vLLM
+    ```python
+    from transformers import AutoTokenizer
+    from vllm import LLM, SamplingParams
+
+    path = 'YOUR-MODEL-PATH'
+
+    tokenizer = AutoTokenizer.from_pretrained(path)
+
+    prompt = "Which is the largest ocean in the world?"
+    messages = [
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": prompt}
+    ]
+    text = tokenizer.apply_chat_template(
+        messages,
+        tokenize=False,
+        add_generation_prompt=True
+    )
+
+    sampling_params = SamplingParams(temperature=0.8, top_k=50)
+    llm = LLM(model=path)
+
+    response = llm.generate(text, sampling_params)
+    ```
+##### ollama
+1. Create 'Modelfile' file
+    ```shell
+    # Specify the model source file as OceanGPT.gguf in the current directory, and set the prompt template to format user input.
+    FROM ./OceanGPT.gguf
+    TEMPLATE "[INST] {{ .Prompt }} [/INST]"
+    ```
+2. Create Model using Modelfile
+    ```shell
+    # Build model instance named example using the Modelfile.
+    ollama create example -f Modelfile
+    ```
+3. Run
+    ```shell
+    ollama run example "What is your favourite condiment?"
+    ```
+##### llama.cpp
+1. Install llama.cpp
+    ```shell
+    git clone https://github.com/ggml-org/llama.cpp
+    cd llama.cpp
+    make llama-cli
+    ```
+2. Convert Hugging Face model to the GGUF format.
+    ```shell
+    python convert-hf-to-gguf.py OceanGPT --outfile OceanGPT.gguf
+    ```
+3. Run
+    ```shell
+    ./llama-cli -m OceanGPT.gguf \
+        -co -cnv -p "Your prompt" \
+        -fa -ngl 80 -n 512
+    ```
 
 ## 🤗Chat with Our Demo on Gradio
 
@@ -190,55 +380,62 @@ You can easily deploy the interactive interface locally using the code we provid
 
 > 🔧 Before running, modify the model path (OceanGPT/OceanGPT-o/OceanGPT-coder's path) in app.py to your local model path.
 
-```python
+```shell
 python app.py
 ```
 Open `https://localhost:7860/` in browser and enjoy the interaction with OceanGPT.
 
 ### Online Demo <!-- omit in toc -->
-
-We provide users with an interactive Gradio demo accessible online.
-
-Here is the demo about using OceanGPT:
-<table>
-    <tr>
-        <td><img src="figs/3.png"></td>
-        <td><img src="figs/4.png"></td>
-    </tr>
-</table>
-
-1. Input your query (optional: upload an Word/PDF).
-
-2. Choose the generation hyparameters.
-
-3. Run and get results.
-
-Here is the demo about using OceanGPT-o:
+#### Marine Science Image Recognition
 <table>
     <tr>
         <td><img src="figs/1.png"></td>
         <td><img src="figs/2.png"></td>
     </tr>
 </table>
+You can use OceanGPT-o for marine science image recognition.
 
 1. Input your query and upload an image.
-
 2. Choose the generation hyparameters.
-
 3. Run and get results.
 
-Here is the demo about using OceanGPT-coder:
+#### Sonar Image Recognition
+<table>
+    <tr>
+        <td><img src="figs/1.png"></td>
+        <td><img src="figs/7.png"></td>
+    </tr>
+</table>
+You can use OceanGPT-o for sonar image recognition.
+
+1. Input your query and upload an image.
+2. Choose the generation hyparameters.
+3. Run and get results.
+
+#### Marine Science Q&A
+<table>
+    <tr>
+        <td><img src="figs/3.png"></td>
+        <td><img src="figs/4.png"></td>
+    </tr>
+</table>
+You can use OceanGPT-basic for marine science Q&A.
+
+1. Input your query (optional: upload an Word/PDF).
+2. Choose the generation hyparameters.
+3. Run and get results.
+
+#### MOOS Code Generation
 <table>
     <tr>
         <td><img src="figs/5.png"></td>
         <td><img src="figs/6.png"></td>
     </tr>
 </table>
+You can use OceanGPT-coder for moos code generation.
 
 1. Input your query.
-
 2. Choose the generation hyparameters.
-
 3. Run and get code.
 
 ## Using MCP Server for Sonar Image Caption

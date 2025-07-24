@@ -12,9 +12,9 @@
     <a href="https://arxiv.org/abs/2310.02031">论文</a> •
     <a href="https://huggingface.co/collections/zjunlp/oceangpt-664cc106358fdd9f09aa5157">模型</a> •
     <a href="http://oceangpt.zjukg.cn/">网站</a> •
-    <a href="#overview">概述</a> •
-    <a href="#quickstart">快速开始</a> •
-    <a href="#citation">引用</a>
+    <a href="#概述">概述</a> •
+    <a href="#快速开始">快速开始</a> •
+    <a href="#引用">引用</a>
 </p>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
@@ -27,7 +27,7 @@
 
 - <a href="#最新动态">最新动态</a>
 - <a href="#概述">概述</a>
-- <a href="#quickstart">快速开始</a>
+- <a href="#快速开始">快速开始</a>
 - <a href="#与我们的Gradio演示对话"> 🤗与我们的Gradio演示对话</a>
 - <a href="#推理">推理</a>
 - <a href="#模型">模型</a>
