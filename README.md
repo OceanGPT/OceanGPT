@@ -252,126 +252,31 @@ output_text = processor.batch_decode(
 print(output_text)
 ```
 
-#### Inference by sglang, vllm, ollama and llama.cpp
-##### SGLang
-1. Install SGLang
-    ```shell
-    pip install --upgrade pip
-    pip install uv
-    uv pip install "sglang[all]>=0.4.6.post4"
-    ```
-2. Start SGLang Service
-    ```python
-    import requests
-    from openai import OpenAI
-    from sglang.test.test_utils import is_in_ci
+#### Inference by vllm
+```python
+from transformers import AutoTokenizer
+from vllm import LLM, SamplingParams
 
-    if is_in_ci():
-        from patch import launch_server_cmd
-    else:
-        from sglang.utils import launch_server_cmd
+path = 'YOUR-MODEL-PATH'
 
-    from sglang.utils import wait_for_server, print_highlight, terminate_process
+tokenizer = AutoTokenizer.from_pretrained(path)
 
-    server_process, port = launch_server_cmd(
-        "python3 -m sglang.launch_server --model-path zjunlp/OceanGPT-o-7B --host 0.0.0.0"
-    )
+prompt = "Which is the largest ocean in the world?"
+messages = [
+    {"role": "system", "content": "You are a helpful assistant."},
+    {"role": "user", "content": prompt}
+]
+text = tokenizer.apply_chat_template(
+    messages,
+    tokenize=False,
+    add_generation_prompt=True
+)
 
-    wait_for_server(f"http://localhost:{port}")
-    ```
-3. Chat
-    ```python
-    import requests
+sampling_params = SamplingParams(temperature=0.8, top_k=50)
+llm = LLM(model=path)
 
-    url = f"http://localhost:{port}/v1/chat/completions"
-
-    data = {
-        "model": "zjunlp/OceanGPT-o-7B",
-        "messages": [
-            {
-                "role": "user",
-                "content": [
-                    {"type": "text", "text": "What’s in this image?"},
-                    {
-                        "type": "image_url",
-                        "image_url": {
-                            "url": "https://github.com/sgl-project/sglang/blob/main/test/lang/example_image.png?raw=true"
-                        },
-                    },
-                ],
-            }
-        ],
-        "max_tokens": 300,
-    }
-
-    response = requests.post(url, json=data)
-    print_highlight(response.text)
-    ```
-##### vLLM
-1. Install vLLM
-    ```shell
-    pip install --upgrade pip
-    pip install uv
-    uv pip install vllm --torch-backend=auto
-    ```
-2. Inference with vLLM
-    ```python
-    from transformers import AutoTokenizer
-    from vllm import LLM, SamplingParams
-
-    path = 'YOUR-MODEL-PATH'
-
-    tokenizer = AutoTokenizer.from_pretrained(path)
-
-    prompt = "Which is the largest ocean in the world?"
-    messages = [
-        {"role": "system", "content": "You are a helpful assistant."},
-        {"role": "user", "content": prompt}
-    ]
-    text = tokenizer.apply_chat_template(
-        messages,
-        tokenize=False,
-        add_generation_prompt=True
-    )
-
-    sampling_params = SamplingParams(temperature=0.8, top_k=50)
-    llm = LLM(model=path)
-
-    response = llm.generate(text, sampling_params)
-    ```
-##### ollama
-1. Create 'Modelfile' file
-    ```shell
-    # Specify the model source file as OceanGPT.gguf in the current directory, and set the prompt template to format user input.
-    FROM ./OceanGPT.gguf
-    TEMPLATE "[INST] {{ .Prompt }} [/INST]"
-    ```
-2. Create Model using Modelfile
-    ```shell
-    # Build model instance named example using the Modelfile.
-    ollama create example -f Modelfile
-    ```
-3. Run
-    ```shell
-    ollama run example "What is your favourite condiment?"
-    ```
-##### llama.cpp
-1. Install llama.cpp
-    ```shell
-    git clone https://github.com/ggml-org/llama.cpp
-    cd llama.cpp
-    make llama-cli
-    ```
-2. Convert Hugging Face model to the GGUF format.
-    ```shell
-    python convert-hf-to-gguf.py OceanGPT --outfile OceanGPT.gguf
-    ```
-3. Run
-    ```shell
-    ./llama-cli -m OceanGPT.gguf \
-        -co -cnv -p "Your prompt" \
-        -fa -ngl 80 -n 512
-    ```
+response = llm.generate(text, sampling_params)
+```
 
 ## 🤗Chat with Our Demo on Gradio
 
