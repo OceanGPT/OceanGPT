@@ -298,7 +298,7 @@ Open `https://localhost:7860/` in browser and enjoy the interaction with OceanGP
         <td><img src="figs/4.png"></td>
     </tr>
 </table>
-You can use OceanGPT-basic for marine science Q&A.
+You can use OceanGPT-basic for ocean domain Q&A.
 
 1. Input your query (optional: upload an Word/PDF).
 2. Choose the generation hyparameters.
@@ -311,7 +311,7 @@ You can use OceanGPT-basic for marine science Q&A.
         <td><img src="figs/2.png"></td>
     </tr>
 </table>
-You can use OceanGPT-o for marine science image recognition.
+You can use OceanGPT-o for marine science image Q&A.
 
 1. Input your query and upload an image.
 2. Choose the generation hyparameters.
@@ -324,7 +324,7 @@ You can use OceanGPT-o for marine science image recognition.
         <td><img src="figs/7.png"></td>
     </tr>
 </table>
-You can use OceanGPT-o for sonar image recognition.
+You can use OceanGPT-o for sonar image caption.
 
 1. Input your query and upload an image.
 2. Choose the generation hyparameters.
