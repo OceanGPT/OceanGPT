@@ -291,7 +291,20 @@ python app.py
 Open `https://localhost:7860/` in browser and enjoy the interaction with OceanGPT.
 
 ### Online Demo <!-- omit in toc -->
-#### Marine Science Image Recognition
+#### Ocean Domain Q&A
+<table>
+    <tr>
+        <td><img src="figs/3.png"></td>
+        <td><img src="figs/4.png"></td>
+    </tr>
+</table>
+You can use OceanGPT-basic for marine science Q&A.
+
+1. Input your query (optional: upload an Word/PDF).
+2. Choose the generation hyparameters.
+3. Run and get results.
+   
+#### Marine Science Image Q&A
 <table>
     <tr>
         <td><img src="figs/1.png"></td>
@@ -304,7 +317,7 @@ You can use OceanGPT-o for marine science image recognition.
 2. Choose the generation hyparameters.
 3. Run and get results.
 
-#### Sonar Image Recognition
+#### Sonar Image Caption
 <table>
     <tr>
         <td><img src="figs/1.png"></td>
@@ -317,20 +330,9 @@ You can use OceanGPT-o for sonar image recognition.
 2. Choose the generation hyparameters.
 3. Run and get results.
 
-#### Marine Science Q&A
-<table>
-    <tr>
-        <td><img src="figs/3.png"></td>
-        <td><img src="figs/4.png"></td>
-    </tr>
-</table>
-You can use OceanGPT-basic for marine science Q&A.
 
-1. Input your query (optional: upload an Word/PDF).
-2. Choose the generation hyparameters.
-3. Run and get results.
 
-#### MOOS Code Generation
+#### Underwater Robot Control Code Generation (MOOS)
 <table>
     <tr>
         <td><img src="figs/5.png"></td>
