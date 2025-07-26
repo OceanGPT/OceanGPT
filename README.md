@@ -27,6 +27,9 @@
 
 We have published a detailed beginner's guide for OceanGPT, which will help you quickly grasp the model’s capabilities and begin applying this ocean-focused large model in your work.
 
+> [!IMPORTANT]
+> We regularly **update our open-source models**, so their capabilities may differ from previous versions. We warmly welcome your feedback to help us continuously improve the application of LLMs in the ocean domain.
+
 ## Table of Contents
 
 - <a href="#news">What's New</a>
