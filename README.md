@@ -176,35 +176,6 @@ content = tokenizer.decode(output_ids[index:], skip_special_tokens=True).strip("
 print(content)
 ```
 
-#### OceanGPT-coder-7B
-```python
-from transformers import AutoModelForCausalLM, AutoTokenizer
-model = AutoModelForCausalLM.from_pretrained(
-    "zjunlp/OceanGPT-coder-7B", torch_dtype=torch.float16, device_map="auto"
-)
-tokenizer = AutoTokenizer.from_pretrained("zjunlp/OceanGPT-coder-7B")
-messages = [
-    {"role": "system", "content": "You are Qwen, created by Alibaba Cloud. You are a helpful assistant."},
-    {"role": "user", "content": "请为水下机器人生成MOOS代码，实现如下任务：先回到（50,20）点，然后以（15,20）点为圆形，做半径为30的圆周运动，持续时间200s，速度4 m/s。"}
-]
-text = tokenizer.apply_chat_template(
-    messages,
-    tokenize=False,
-    add_generation_prompt=True
-)
-model_inputs = tokenizer([text], return_tensors="pt").to(model.device)
-generated_ids = model.generate(
-    **model_inputs,
-    top_p=0.6,
-    temperature=0.6,
-    max_new_tokens=2048
-)
-generated_ids = [
-    output_ids[len(input_ids):] for input_ids, output_ids in zip(model_inputs.input_ids, generated_ids)
-]
-response = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
-print(response)
-```
 #### OceanGPT-o-7B
 ```shell
 # It's highly recommanded to use `[decord]` feature for faster video loading.
@@ -212,13 +183,14 @@ pip install qwen-vl-utils[decord]==0.0.8
 pip install transformers
 ```
 ```python
-from transformers import Qwen2_5_VLForConditionalGeneration, AutoTokenizer, AutoProcessor
+from transformers import Qwen2_5_VLForConditionalGeneration, AutoTokenizer, Qwen2VLProcessor
 from qwen_vl_utils import process_vision_info
+import torch
 
 model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
     "zjunlp/OceanGPT-o-7B", torch_dtype=torch.bfloat16, device_map="auto"
 )
-processor = AutoProcessor.from_pretrained("zjunlp/OceanGPT-o-7B")
+processor = Qwen2VLProcessor.from_pretrained("zjunlp/OceanGPT-o-7B")
 
 messages = [
     {
@@ -253,6 +225,38 @@ output_text = processor.batch_decode(
     generated_ids_trimmed, skip_special_tokens=True, clean_up_tokenization_spaces=False
 )
 print(output_text)
+```
+
+#### OceanGPT-coder-7B
+```python
+from transformers import AutoModelForCausalLM, AutoTokenizer
+import torch
+
+model = AutoModelForCausalLM.from_pretrained(
+    "zjunlp/OceanGPT-coder-7B", torch_dtype=torch.float16, device_map="auto"
+)
+tokenizer = AutoTokenizer.from_pretrained("zjunlp/OceanGPT-coder-7B")
+messages = [
+    {"role": "system", "content": "You are Qwen, created by Alibaba Cloud. You are a helpful assistant."},
+    {"role": "user", "content": "请为水下机器人生成MOOS代码，实现如下任务：先回到（50,20）点，然后以（15,20）点为圆形，做半径为30的圆周运动，持续时间200s，速度4 m/s。"}
+]
+text = tokenizer.apply_chat_template(
+    messages,
+    tokenize=False,
+    add_generation_prompt=True
+)
+model_inputs = tokenizer([text], return_tensors="pt").to(model.device)
+generated_ids = model.generate(
+    **model_inputs,
+    top_p=0.6,
+    temperature=0.6,
+    max_new_tokens=2048
+)
+generated_ids = [
+    output_ids[len(input_ids):] for input_ids, output_ids in zip(model_inputs.input_ids, generated_ids)
+]
+response = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
+print(response)
 ```
 
 #### Inference by vllm
@@ -294,40 +298,40 @@ python app.py
 Open `https://localhost:7860/` in browser and enjoy the interaction with OceanGPT.
 
 ### Online Demo <!-- omit in toc -->
-#### Ocean Domain Q&A
+#### Marine Expertise Q&A
 <table>
     <tr>
         <td><img src="figs/3.png"></td>
         <td><img src="figs/4.png"></td>
     </tr>
 </table>
-You can use OceanGPT-basic for ocean domain Q&A.
+You can use OceanGPT-basic for marine expertise Q&A.
 
 1. Input your query (optional: upload an Word/PDF).
 2. Choose the generation hyparameters.
 3. Run and get results.
    
-#### Marine Science Image Q&A
+#### Marine Science Image Interpretation
 <table>
     <tr>
         <td><img src="figs/1.png"></td>
         <td><img src="figs/2.png"></td>
     </tr>
 </table>
-You can use OceanGPT-o for marine science image Q&A.
+You can use OceanGPT-o for marine science image interpretation.
 
 1. Input your query and upload an image.
 2. Choose the generation hyparameters.
 3. Run and get results.
 
-#### Sonar Image Caption
+#### Marine Sonar Image Interpretation
 <table>
     <tr>
         <td><img src="figs/1.png"></td>
         <td><img src="figs/7.png"></td>
     </tr>
 </table>
-You can use OceanGPT-o for sonar image caption.
+You can use OceanGPT-o for marine sonar image interpretation.
 
 1. Input your query and upload an image.
 2. Choose the generation hyparameters.
@@ -335,7 +339,7 @@ You can use OceanGPT-o for sonar image caption.
 
 
 
-#### Underwater Robot Control Code Generation (MOOS)
+#### Underwater Robot MOOS Code Generation
 <table>
     <tr>
         <td><img src="figs/5.png"></td>
