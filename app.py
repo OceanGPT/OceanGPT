@@ -186,28 +186,75 @@ def check_file_size(file):
         return gr.update(visible=False)
 
 def create_demo():
-    with gr.Blocks() as demo:
+    with gr.Blocks(css="""
+        .textarea-auto-wrap textarea {
+            white-space: pre-wrap !important;
+            word-wrap: break-word !important;
+            overflow-x: hidden !important;
+            overflow-y: auto !important;
+            resize: vertical !important;
+        }
+        .textarea-fixed-height textarea {
+            white-space: pre-wrap !important;
+            word-wrap: break-word !important;
+            overflow-x: hidden !important;
+            overflow-y: auto !important;
+            resize: none !important;
+            max-height: 600px !important;
+        }
+        .image-with-scroll {
+            max-height: 400px !important;
+            overflow: auto !important;
+        }
+        .image-with-scroll img {
+            max-width: 100% !important;
+            height: auto !important;
+        }
+    """) as demo:
         with gr.Tab("OceanGPT-o"):    
             with gr.Row():
                 with gr.Column():
-                    mllm_text = gr.Textbox(placeholder="Input text query", label="text input")
+                    mllm_text = gr.TextArea(
+                        placeholder="Input text query", 
+                        label="text input", 
+                        lines=3,
+                        max_lines=15,
+                        elem_classes=["textarea-auto-wrap"]
+                    )
                     file_warning = gr.Markdown("", visible=False)
-                    mllm_image = gr.Image(type="filepath", label="image input")
-                    temperature = gr.Slider(minimum=0, maximum=2, label="temperature", step=0.1, value=1.2)
-                    top_p = gr.Slider(minimum=0, maximum=1, label="top_p", step=0.01, value=0.95)
-                    max_tokens = gr.Slider(minimum=1, maximum=1024, label="max_tokens", step=1, value=512)
+                    mllm_image = gr.Image(type="filepath", label="image input", elem_classes=["image-with-scroll"])
+                    temperature = gr.Slider(minimum=0, maximum=2, label="temperature", step=0.1, value=0.6)
+                    top_p = gr.Slider(minimum=0, maximum=1, label="top_p", step=0.01, value=1.0)
+                    max_tokens = gr.Slider(minimum=1, maximum=4096, label="max_tokens", step=1, value=2048)
                     clear_button = gr.ClearButton(components=[mllm_text, mllm_image],value="Clear")
                     run_botton = gr.Button("Run")
                 with gr.Column():
-                    response_res = gr.Textbox(label="OceanGPT-o's response")
+                    response_res = gr.TextArea(
+                        label="OceanGPT-o's response", 
+                        lines=8,
+                        max_lines=20,
+                        elem_classes=["textarea-fixed-height"]
+                    )
             
             mllm_image.change(fn=check_file_size, inputs=mllm_image, outputs=[file_warning])
             
             inputs = [mllm_text, mllm_image, temperature, top_p, max_tokens]
             outputs = [response_res]
             
-            examples = [["As a marine scientist, analyze the provided sonar image of the seabed. Describe the objects you identify and their locations. The objects may belong to the following categories: 'ball', 'circle cage', 'cube', 'cylinder', 'human body', 'metal bucket', 'plane', 'ROV', 'square cage', and 'tyre'.","case_0.jpg"],
-                        ["请分析 CTD 投放站点（以空白方块和空心圆表示）的布局和分布，结合阿尔塔马哈河口海湾水流结构在横断面和沿河方向上的变化。这些站点的设置如何有助于获取关键数据，从而在河道不同区域上估算残余流和净输运？","case_1.png"]]
+            examples = [
+                    [
+                        "作为海洋科学家，请分析所提供的声呐图像。描述在图像中检测到的物体，并尽可能详细地说明它们的位置。", "figs/case_0.png"
+                    ],
+                    [
+                        "As a marine scientist, analyze the sonar images provided. Describe the objects detected in the images and specify their locations with as much detail as possible.", "figs/case_7.png"
+                    ],
+                    [
+                        "请分析 CTD 投放站点（以空白方块和空心圆表示）的布局和分布，结合阿尔塔马哈河口海湾水流结构在横断面和沿河方向上的变化。这些站点的设置如何有助于获取关键数据，从而在河道不同区域上估算残余流和净输运？", "figs/case_1.png"
+                    ],
+                    [
+                        "Analyze the arrangement and distribution of CTD casting stations (denoted by blank squares and open circles) in the context of the study's aim to understand cross- and along-channel variations in the current structures of the Altamaha River Sound. How do these station placements aid in capturing data essential for estimating the residual flow and net transport across different river sections?", "figs/case_1.png"
+                    ]
+                ]
             
             gr.Examples(
                 examples=examples,
@@ -223,26 +270,39 @@ def create_demo():
         with gr.Tab("OceanGPT"):
             with gr.Row():
                 with gr.Column():
-                    llm_text = gr.Textbox(placeholder="Input query", label="text input")
+                    llm_text = gr.TextArea(
+                        placeholder="Input query", 
+                        label="text input", 
+                        lines=3,
+                        max_lines=15,
+                        elem_classes=["textarea-auto-wrap"]
+                    )
                     file_warning = gr.Markdown("", visible=False)
                     llm_file = gr.File(label="Upload PDF / Word", file_types=[".pdf", ".docx"])
-                    temperature = gr.Slider(minimum=0, maximum=2, label="temperature", step=0.1, value=1.2)
-                    top_p = gr.Slider(minimum=0, maximum=1, label="top_p", step=0.01, value=0.95)
-                    max_tokens = gr.Slider(minimum=1, maximum=1024, label="max_tokens", step=1, value=512)
+                    temperature = gr.Slider(minimum=0, maximum=2, label="temperature", step=0.1, value=0.6)
+                    top_p = gr.Slider(minimum=0, maximum=1, label="top_p", step=0.01, value=1.0)
+                    max_tokens = gr.Slider(minimum=1, maximum=4096, label="max_tokens", step=1, value=2048)
                     clear_button = gr.ClearButton(components=[llm_text, llm_file],value="Clear")
                     run_botton = gr.Button("Run")
                 with gr.Column():
-                    llm_response_res = gr.Textbox(label="OceanGPT's response")
+                    llm_response_res = gr.TextArea(
+                        label="OceanGPT's response", 
+                        lines=8,
+                        max_lines=20,
+                        elem_classes=["textarea-fixed-height"]
+                    )
             
             llm_file.change(fn=check_file_size, inputs=llm_file, outputs=[file_warning])
 
             inputs = [llm_text, llm_file, temperature, top_p, max_tokens]
             outputs = [llm_response_res]
             
-            examples = [["Comparison between Cold Seep and Hydrothermal Vent Species"],
-                        ["How to distinguish between naturally formed seafloor rocks and man-made stone architectural remains?"],
-                        ["冷泉与热液喷口物种对比"],
-                        ["如何区分自然形成的海底岩石与人造石质建筑遗迹？"]]
+            examples = [
+                    ["冷泉与热液喷口物种对比"],
+                    ["如何区分自然形成的海底岩石与人造石质建筑遗迹？"],
+                    ["Comparison between Cold Seep and Hydrothermal Vent Species"],
+                    ["How to distinguish between naturally formed seafloor rocks and man-made stone architectural remains?"]
+                ]
             
             gr.Examples(
                 examples=examples,
@@ -258,20 +318,38 @@ def create_demo():
         with gr.Tab("OceanGPT-coder"):
             with gr.Row():
                 with gr.Column():
-                    llm_text = gr.Textbox(placeholder="Input query", label="text input")
-                    temperature = gr.Slider(minimum=0, maximum=2, label="temperature", step=0.6, value=1.2)
-                    top_p = gr.Slider(minimum=0, maximum=1, label="top_p", step=0.01, value=0.8)
-                    max_tokens = gr.Slider(minimum=1, maximum=4096, label="max_tokens", step=512, value=2048)
+                    llm_text = gr.TextArea(
+                        placeholder="Input query", 
+                        label="text input", 
+                        lines=3,
+                        max_lines=15,
+                        elem_classes=["textarea-auto-wrap"]
+                    )
+                    temperature = gr.Slider(minimum=0, maximum=2, label="temperature", step=0.1, value=0.6)
+                    top_p = gr.Slider(minimum=0, maximum=1, label="top_p", step=0.01, value=1.0)
+                    max_tokens = gr.Slider(minimum=1, maximum=4096, label="max_tokens", step=1, value=2048)
+
                     clear_button = gr.ClearButton(components=[llm_text],value="Clear")
                     run_botton = gr.Button("Run")
                 with gr.Column():
-                    llm_response_res = gr.Textbox(label="OceanGPT-coder's response")
+                    llm_response_res = gr.TextArea(
+                        label="OceanGPT-coder's response", 
+                        lines=8,
+                        max_lines=20,
+                        elem_classes=["textarea-fixed-height"]
+                    )
             
             inputs = [llm_text, temperature, top_p, max_tokens]
             outputs = [llm_response_res]
             
-            examples = [["请为水下机器人生成MOOS代码，执行声呐数据采集任务：按照顺序分别往以下几点 60,-40:60,-160:150,-160:180,-100:150,-40，速度为2m/s，任务执行两次，任务完成后返回原点。"],
-                        ["请为水下机器人生成MOOS代码，实现如下任务：先回到（0,0）点，然后以（0,0）点为圆形，做半径为50的圆周运动，持续时间120s。"]]
+            examples = [
+                    [
+                        "请为水下机器人生成MOOS代码，执行声呐数据采集任务：按照顺序分别往以下几点 60,-40:60,-160:150,-160:180,-100:150,-40，速度为2m/s，任务执行两次，任务完成后返回原点。"
+                    ],
+                    [
+                        "请为水下机器人生成MOOS代码，实现如下任务：先回到（0,0）点，然后以（0,0）点为圆形，做半径为50的圆周运动，持续时间120s。"
+                    ]
+                ]
             
             gr.Examples(
                 examples=examples,
@@ -300,7 +378,32 @@ Upload documents (Word, PDF, or images) to help OceanGPT provide more accurate a
 Please refer to our [project](http://www.oceangpt.blue/) for more details.
 """
 
-with gr.Blocks(css="h1,p {text-align: center !important;}") as demo:
+with gr.Blocks(css="""
+    h1,p {text-align: center !important;}
+    .textarea-auto-wrap textarea {
+        white-space: pre-wrap !important;
+        word-wrap: break-word !important;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+        resize: vertical !important;
+    }
+    .textarea-fixed-height textarea {
+        white-space: pre-wrap !important;
+        word-wrap: break-word !important;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+        resize: none !important;
+        max-height: 600px !important;
+    }
+    .image-with-scroll {
+        max-height: 400px !important;
+        overflow: auto !important;
+    }
+    .image-with-scroll img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+""") as demo:
     gr.Markdown(description)
     create_demo()
 
