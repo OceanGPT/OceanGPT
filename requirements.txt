@@ -1,4 +1,14 @@
-torch>=2.0.0
 torchvision
 transformers>=4.51.0
-accelerate
+streamlit>=1.28.0
+langchain>=0.1.0
+langchain-community>=0.0.10
+langchain-core>=0.1.0
+langchain_huggingface
+faiss-cpu>=1.7.4
+python-docx>=0.8.11
+PyPDF2>=3.0.1
+torch>=2.0.0
+sentence-transformers>=2.2.2
+accelerate>=0.24.0
+bitsandbytes>=0.41.0 
