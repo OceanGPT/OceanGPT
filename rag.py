@@ -352,7 +352,7 @@ def main():
             tokenizer=tokenizer,
             model=model
         )
-    st.header("通过定制化 OceanGPT·沧渊，对文档内容进行精问答")
+    st.header("通过定制化 OceanGPT·沧渊，对文档内容进行精准问答")
     with st.sidebar:
         if "conversation" not in st.session_state:
             st.session_state.conversation = None
