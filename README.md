@@ -36,6 +36,7 @@ We have published a detailed beginner's guide for OceanGPT, which will help you 
 - <a href="#overview">Overview</a>
 - <a href="#quickstart">Quickstart</a>
 - <a href="#chat-with-our-demo-on-gradio"> 🤗Chat with Our Demo on Gradio</a>
+- <a href="#fine-tuning-oceangpt-for-building-customized-qa-applications">Fine-tuning OceanGPT for Building Customized QA Applications</a>
 - <a href="#using-mcp-server-for-sonar-image-caption">Using MCP Server for Sonar Image Caption</a>
 - <a href="#inference">Inference</a>
     - <a href="#models">Models</a>
@@ -351,6 +352,19 @@ You can use OceanGPT-coder for moos code generation.
 1. Input your query.
 2. Choose the generation hyparameters.
 3. Run and get code.
+
+## Fine-tuning OceanGPT for Building Customized QA Applications
+
+This tutorial is based on the open-source OceanGPT·Cangyuan large model, the EasyDataset open-source tool, and the Llama Factory open-source tool, covering the following key steps:
+
+*   Model Acquisition
+*   EasyDataset Data Engineering
+*   Domain Fine-tuning with Llama Factory
+*   Building a Web Application
+*   User Usage and Effect Validation
+
+This guide provides a practical engineering solution to help you quickly build a professional Q&A system for the maritime domain. Fine-tuning requires only 22GB of VRAM, making it usable on an NVIDIA GeForce RTX 3090. During deployment, int4 quantization technology is used to reduce VRAM usage to about 8GB.
+For detailed setup instructions and usage examples, see the [CustomQA_CN.md](https://github.com/zjunlp/OceanGPT/blob/main/CustomQA_CN.md)|[CustomQA_EN.md](https://github.com/zjunlp/OceanGPT/blob/main/CustomQA_EN.md).
 
 ## Using MCP Server for Sonar Image Caption
 
