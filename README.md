@@ -363,7 +363,7 @@ This tutorial is based on the open-source OceanGPT·Cangyuan large model, the Ea
 *   Building a Web Application
 *   User Usage and Effect Validation
 
-This guide provides a practical engineering solution to help you quickly build a professional Q&A system for the maritime domain. For detailed setup instructions and usage examples, see the [CustomQA_CN.md](https://github.com/zjunlp/OceanGPT/blob/main/CustomQA_CN.md)|[CustomQA_EN.md](https://github.com/zjunlp/OceanGPT/blob/main/CustomQA_EN.md).
+This guide provides a practical engineering solution to help you quickly build a professional Q&A system for the maritime domain. For detailed setup instructions and usage examples, see the [CustomQA_CN.md](https://github.com/zjunlp/OceanGPT/blob/main/CustomQA_CN.md) or [CustomQA_EN.md](https://github.com/zjunlp/OceanGPT/blob/main/CustomQA_EN.md).
 
 ## Using MCP Server for Sonar Image Caption
 
