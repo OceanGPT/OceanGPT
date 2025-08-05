@@ -23,7 +23,7 @@
 
 
 </div>
----
+
 
 **✨ [OceanGPT 新手教程](https://ajar-mayflower-ac1.notion.site/OceanGPT-1f8204ef4eed80db8842c3925dc9b814)|[新手教程中文版](https://www.notion.so/OceanGPT-V1-0-225204ef4eed802584d2f77d6d2d5f3e)正式发布！**
 
@@ -43,9 +43,9 @@
 - <a href="#快速开始">快速开始</a>
 - <a href="#与我们的Gradio演示对话"> 🤗与我们的Gradio演示对话</a>
 - <a href="#基于 OceanGPT 构建定制化问答应用">基于 OceanGPT 构建定制化问答应用</a>
-- <a href="#推理">推理</a>
+- <a href="#📌推理">推理</a>
     - <a href="#模型">模型</a>
-    - <a href="#使用llama.cpp, ollama, vLLM进行高效推理">使用sglang、vLLM、ollama、llama.cpp进行高效推理</a>
+    - <a href="#使用sglang、vLLM、ollama、llama.cpp进行高效推理">使用sglang、vLLM、ollama、llama.cpp进行高效推理</a>
 - <a href="#致谢">致谢</a>
 - <a href="#局限性">局限性</a>
 - <a href="#引用">引用</a>
@@ -370,7 +370,7 @@ python app.py
 
 ## 📌推理
 
-### 使用llama.cpp、ollama、vLLM进行高效推理
+### 使用sglang、vLLM、ollama、llama.cpp进行高效推理
 
 <details>
 <summary> sglang现在正式支持基于Qwen2.5-VL和Qwen2.5的模型。点击查看。 </summary>
