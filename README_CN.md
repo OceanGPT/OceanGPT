@@ -5,7 +5,7 @@
 <div align="center">
 <img src="figs/logo.jpg" width="300px">
 
-**OceanGPT (沧渊): 一个面向海洋科学任务的大语言模型**
+**OceanGPT (沧渊): 沧渊海洋基础大模型**
 
 <p align="center">
     <a href="https://github.com/zjunlp/OceanGPT">项目</a> •
