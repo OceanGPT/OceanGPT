@@ -25,9 +25,9 @@
 </div>
 
 
-**✨ [OceanGPT 新手教程](https://ajar-mayflower-ac1.notion.site/OceanGPT-1f8204ef4eed80db8842c3925dc9b814)|[新手教程中文版](https://www.notion.so/OceanGPT-V1-0-225204ef4eed802584d2f77d6d2d5f3e)正式发布！**
+**✨ [OceanGPT Beginner's Guide ](https://ajar-mayflower-ac1.notion.site/OceanGPT-1f8204ef4eed80db8842c3925dc9b814)|[新手教程中文版](https://www.notion.so/OceanGPT-V1-0-225204ef4eed802584d2f77d6d2d5f3e)正式发布!**
 
-**✨ [OceanGPT 微调教程](https://www.notion.so/Fine-Tuning-OceanGPT-for-Task-Oriented-QA-243204ef4eed80bfb47de1acdad24e96)|[定制问答引擎教程中文版](https://www.notion.so/OceanGPT-242204ef4eed809d8ef5e452bf294da7)正式发布！**
+**✨ [OceanGPT Fine-tuning's Guide ](https://www.notion.so/Fine-Tuning-OceanGPT-for-Task-Oriented-QA-243204ef4eed80bfb47de1acdad24e96)|[定制问答引擎教程中文版](https://www.notion.so/OceanGPT-242204ef4eed809d8ef5e452bf294da7)正式发布!**
 
 我们发布了详细的OceanGPT新手教程，帮助您快速了解其功能。如果您想要为实际使用定制OceanGPT，可以参考微调教程来构建定制的问答引擎。
 
