@@ -25,9 +25,13 @@
 
 ---
 
-**✨ [OceanGPT Beginner's Guide ](https://ajar-mayflower-ac1.notion.site/OceanGPT-1f8204ef4eed80db8842c3925dc9b814)officially published!**
+**✨ [OceanGPT Beginner's Guide ](https://ajar-mayflower-ac1.notion.site/OceanGPT-1f8204ef4eed80db8842c3925dc9b814)|[新手教程中文版](https://www.notion.so/OceanGPT-V1-0-225204ef4eed802584d2f77d6d2d5f3e)officially published!**
 
-We have published a detailed beginner's guide for OceanGPT, which will help you quickly grasp the model’s capabilities and begin applying this ocean-focused large model in your work.
+**✨ [OceanGPT Fine-tuning's Guide ](https://www.notion.so/Fine-Tuning-OceanGPT-for-Task-Oriented-QA-243204ef4eed80bfb47de1acdad24e96)|[定制问答引擎教程中文版](https://www.notion.so/OceanGPT-242204ef4eed809d8ef5e452bf294da7)officially published!**
+
+We have published a detailed beginner's guide for OceanGPT to help you quickly understand its capabilities. If you're looking to customize OceanGPT for practical use, you can refer to the Fine-tuning Guide to build a tailored question-answering engine.
+
+
 
 > [!IMPORTANT]
 > We regularly **update our open-source models**, so their capabilities may differ from previous versions. We warmly welcome your feedback to help us continuously improve the application of LLMs in the ocean domain.
