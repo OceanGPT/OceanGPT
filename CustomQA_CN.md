@@ -1,3 +1,6 @@
+<p align="left">
+        中文</a>&nbsp ｜ &nbsp<a href="CustomQA_EN.md">English</a>
+</p>
 ## 基于OceanGPT·沧渊微调定制知识增强问答引擎
 
 ​    
