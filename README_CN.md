@@ -42,7 +42,7 @@
 - <a href="#概述">概述</a>
 - <a href="#快速开始">快速开始</a>
 - <a href="#与我们的Gradio演示对话"> 🤗与我们的Gradio演示对话</a>
-- <a href="#基于 OceanGPT 构建定制化问答应用">基于 OceanGPT 构建定制化问答应用</a>
+- <a href="#基于OceanGPT构建定制化问答应用">基于OceanGPT构建定制化问答应用</a>
 - <a href="#📌推理">推理</a>
     - <a href="#模型">模型</a>
     - <a href="#使用sglang、vLLM、ollama、llama.cpp进行高效推理">使用sglang、vLLM、ollama、llama.cpp进行高效推理</a>
@@ -350,7 +350,7 @@ python app.py
 2. 选择生成超参数。
 3. 运行并生成代码。
 
-## 基于 OceanGPT 构建定制化问答应用
+## 基于OceanGPT构建定制化问答应用
 
 本教程基于 OceanGPT·沧渊 开源大模型，结合 EasyDataset 开源工具与 Llama Factory 开源工具，涵盖以下关键步骤：
 
