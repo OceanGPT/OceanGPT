@@ -46,6 +46,7 @@ We have published a detailed beginner's guide for OceanGPT, which will help you 
 - <a href="#citation">Citation</a>
 
 ## 🔔News
+- **2025-08-05, We have released a tutorial on fine-tuning the OceanGPT model for Task-Oriented QA tasks.**
 - **2025-06-17, we release the OceanGPT-coder-0.6B.**
 - **2025-05-29, we deploy the OceanGPT MCP Server to support sonar image interpretation.**
 - **2025-04-20, we release the OceanGPT-o-7B and OceanGPT-coder-7B.**
