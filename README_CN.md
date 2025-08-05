@@ -51,7 +51,7 @@
 - <a href="#引用">引用</a>
 
 ## 🔔最新动态
-- **2025-08-05，我们发布了关于微调OceanGPT模型进行任务导向问答任务的[教程](https://github.com/zjunlp/OceanGPT/blob/main/CustomQA_EN.md)。**
+- **2025-08-05，我们发布了关于微调OceanGPT模型进行任务导向问答任务的[教程](https://github.com/zjunlp/OceanGPT/blob/main/CustomQA_CN.md)。**
 - **2025-06-17，我们发布了OceanGPT-coder-0.6B。**
 - **2025-05-29，我们部署了OceanGPT MCP服务器以支持声纳图像解释。**
 - **2025-04-20，我们发布了OceanGPT-o-7B和OceanGPT-coder-7B。**
