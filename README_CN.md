@@ -49,7 +49,6 @@
 
 <div align="center">
 <img src="figs/overview.png" width="60%">
-<img src="figs/vedio.gif" width="60%">
 </div>
 
 
