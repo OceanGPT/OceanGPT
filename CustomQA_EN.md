@@ -1,3 +1,6 @@
+<p align="left">
+        English</a>&nbsp ｜ &nbsp<a href="CustomQA_CN.md">中文</a>
+</p>
 ## Fine-Tuning OceanGPT for Task-Oriented QA
 ​    
 
