@@ -1,5 +1,4 @@
-### Development Update | Building a Privately Deployable Q&A Engine Based on OceanGPT·Cangyuan Fine-Tuning
-
+## Fine-Tuning OceanGPT for Task-Oriented QA
 ​    
 
  🔍 **Addressing Pain Points**
@@ -8,7 +7,7 @@
 -   When new maritime policies, regulations, or equipment are introduced, information is scattered and updates lag, making it hard to know where to find what you need.
 -   Existing large models have many "blind spots," are difficult to deploy locally, lack industry-specific knowledge, and cannot meet enterprise-level security and privacy requirements.
 
-OceanGPT·Cangyuan is trained on Chinese and English datasets in the maritime domain. It can be combined with your exclusive documents to easily achieve "local private deployment + efficient custom fine-tuning," allowing you to instantly create a privately deployable Q&A engine:
+With the customized knowledge-enhanced question-answering engine fine-tuned from OceanGPT, users can obtain practical guidance instantly—simply by inputting a sentence or a keyword:
 
  🌟 **For Example**  
 1️⃣ **Small Fishing Vessel Energy Saving Manual Q&A Assistant**
