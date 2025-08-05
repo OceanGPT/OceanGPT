@@ -136,7 +136,7 @@ services:
     restart: unless-stopped
 ```
 
-> **注意：** 请将 `{YOUR_LOCAL_DB_PATH}`、`{LOCAL_PRISMA_PATH}` 替换为你希望存储本地数据库的实际路径，建议直接使用当前代码仓库目录下的 `local-db` 和 `prisma` 文件夹，这样可以和 NPM 启动时的数据库路径保持一致。
+> **注意：** 请将 `{YOUR_LOCAL_DB_PATH}`、`{LOCAL_PRISMA_PATH}` 替换为您希望存储本地数据库的实际路径，建议直接使用当前代码仓库目录下的 `local-db` 和 `prisma` 文件夹，这样可以和 NPM 启动时的数据库路径保持一致。
 > 初始化数据库文件方式：
 >
 > ```bash
@@ -197,7 +197,7 @@ docker-compose up -d
      Endpoint：填写api地址（默认即可）
 
      Model Name: 选择所需的模型
-     API Key: 填写你的密钥
+     API Key: 填写您的密钥
 
      <img src="./figs/image-20250729141032950.png" alt="image-20250729141032950" style="zoom:50%;" />
 
