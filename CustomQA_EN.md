@@ -464,7 +464,7 @@ streamlit run rag.py
 #### 5.1 Effect Demonstration
 
 ##### (1) Using `Small Fishing Vessel Energy Saving Manual.pdf` as an example
-
+The PDF file is available in the [Small Fishing Vessel Energy Saving Manual](https://github.com/zjunlp/OceanGPT/blob/main/小型渔船节能手册.pdf), and you can download it yourself for testing.
 *   First, use the method described above to generate a dataset from the PDF and fine-tune the model to get the fine-tuned model.
 *   Set up different models (initial model, fine-tuned model) to start the demo separately for Q&A testing.
 *   Effect of the un-fine-tuned model + without uploading a file:
@@ -492,7 +492,7 @@ It can answer with information related to the file, but it is not very accurate.
 It answered the question related to the file concisely and accurately.
 
 ##### (2) Using `Zhejiang Provincial Department of Ocean and Fisheries Document.pdf` as an example
-
+The PDF file is available in the [Zhejiang Provincial Department of Ocean and Fisheries Document](https://github.com/zjunlp/OceanGPT/blob/main/浙江省海洋经济发展厅文件.pdf), and you can download it yourself for testing.
 *   First, use the method described above to generate a dataset from the PDF and fine-tune the model to get the fine-tuned model.
 *   Set up different models (initial model, fine-tuned model) to start the demo separately for Q&A testing.
 *   Effect of the un-fine-tuned model + without uploading a file:
