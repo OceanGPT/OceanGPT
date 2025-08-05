@@ -19,7 +19,7 @@
 </p>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-![](https://img.shields.io/badge/PRs-Welcome-red)  <a href='https://hyper.ai/datasets/32992'><img src='https://img.shields.io/badge/Dataset-HyperAI超神经-pink'></a> 
+![](https://img.shields.io/badge/PRs-Welcome-red)   
 
 
 </div>
