@@ -1,4 +1,6 @@
-
+<p align="left">
+        English</a>&nbsp ｜ &nbsp<a href="README_CN.md">中文</a>
+</p>
 <div align="center">
 <a href="http://oceangpt.ORG/"><img src="figs/logo.jpg" width="300px" ></a>
 
