@@ -138,7 +138,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 
 model_name = "zjunlp/OceanGPT-basic-8B"
 
-# 加载分词器和模型
+# load the tokenizer and the model
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForCausalLM.from_pretrained(
     model_name,
@@ -146,7 +146,7 @@ model = AutoModelForCausalLM.from_pretrained(
     device_map="auto"
 )
 
-question = "<您的问题>"
+question = "<Your Question>"
 messages = [
     {"role": "user", "content": question}
 ]
@@ -177,7 +177,7 @@ print(content)
 
 #### OceanGPT-o-7B
 ```shell
-# 强烈建议使用`[decord]`功能以更快地加载视频。
+# 强烈建议使用`[decord]`功能以更快地加载视频
 pip install qwen-vl-utils[decord]==0.0.8
 pip install transformers
 ```
@@ -199,7 +199,7 @@ messages = [
                 "type": "image",
                 "image": "file:///path/to/your/image.jpg",
             },
-            {"type": "text", "text": "描述这张图片。"},
+            {"type": "text", "text": "Describe this image."},
         ],
     }
 ]
