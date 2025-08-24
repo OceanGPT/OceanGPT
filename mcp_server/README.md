@@ -52,7 +52,7 @@ Our Ocean Science Sonar Vision Model is designed to identify various underwater 
 | 12   | Circle Cage      | 圆形笼       |
 | 13   | Pipeline         | 地下管道     |
 | 14   | Metal Bucket     | 金属桶       |
-| 15   | Ball             | 球体
+| 15   | Ball             | 球体         |
 
 After MCP Server deployed, you can ask your LLM just like this:
 
