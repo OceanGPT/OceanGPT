@@ -107,7 +107,7 @@ MCP (Model Control Protocol)是一种用于大模型API调用和管理的协议,
 http://60.191.72.39:8082/sse
 ```
 
-![image.png](../figs/cherry_set1.png)
+![image.png](../figs/cherry_set2.png)
 
 点击保存。
 
