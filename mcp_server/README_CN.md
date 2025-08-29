@@ -82,7 +82,7 @@ MCP (Model Control Protocol)是一种用于大模型API调用和管理的协议,
 
 输入图片的url地址并提出分析要求就可以获取声呐图的自然语言解读
 
-![use_cherry.gif](../figs/use_cherry.gif)
+![use_cherry.gif](../figs/use_cherry2.gif)
 
 ### 使用方法：
 
@@ -97,7 +97,7 @@ MCP (Model Control Protocol)是一种用于大模型API调用和管理的协议,
 1.  下载客户端。官网 https://docs.cherry-ai.com/cherry-studio/download
 完成安装后，打开设置，在MCP设置一栏进行配置
 
-![cherry_setting.gif](../figs/cherry_setting.gif)
+![cherry_setting.gif](../figs/cherry_setting2.gif)
 
 ![image.png](../figs/cherry_set.png)
 
@@ -144,7 +144,7 @@ http://60.191.72.39:8082/sse
 
 在右侧对话窗口提供图片url和检测要求，回车后就会开始调用服务并处理
 
-![use_cursor.gif](../figs/use_cursor.gif)
+![use_cursor.gif](../figs/use_cursor2.gif)
 
 1. 下载cursor客户端 https://docs.cursor.com/zh/tools/mcp
 2. 完成下载后，打开客户端点击右侧设置，搜索mcp tool进行配置(这个小绿点代表配置成功)
@@ -179,7 +179,7 @@ http://60.191.72.39:8082/sse
 > **提示**：由于计算资源有限，在线系统当前采用小模型，可能存在目标识别不全或结果偏差的情况。建议您在输入提示（Prompt）时加入“声纳图”关键词，以帮助提升识别准确率与效果。如遇系统繁忙或暂时无响应，您可点击界面左下角开启新对话窗口，或稍后再次尝试。
 > 
 
-![use_demo.gif](../figs/use_demo.gif)
+![use_demo.gif](../figs/use_demo2.gif)
 
  您还可以使用开源的MCP客户端工具调用本服务，如：https://github.com/chrishayuk/mcp-cli 等。
 
