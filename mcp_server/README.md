@@ -91,7 +91,6 @@ When our MCP server is *remote*, you can provide a **remote url**.
 
 > Support *SSE* Transport Type, and please ensure that your LLM can access international networks.
 
-You actually only need to complete just one following step:
 
 1. ***(Optional)* Test remote server by MCP Inspector**
 
@@ -254,7 +253,7 @@ All these MCP client you just need modify their `json` config file.
 
 > Support both *local* and *remote* server.
 
- >Download Cursor cliendt from https://docs.cursor.com/zh/tools/mcp
+ >Download Cursor client from https://docs.cursor.com/zh/tools/mcp
 
 **Local json config:**
 
