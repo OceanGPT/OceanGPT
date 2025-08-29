@@ -19,6 +19,8 @@
 
 ## 服务端部署
 
+>远程和本地部署可选择一种方式，网络状况差可选择本地部署。
+
 ### 远程部署
 
 > 支持 SSE 传输方式，须确保你的大模型具备访问国际网络的能力。
@@ -33,11 +35,22 @@ npx @modelcontextprotocol/inspector
 # 可在 http://127.0.0.1:6274 进行测试
 ```
 
-1. **选择 MCP 客户端并添加 `json` 配置（无需其他额外操作）**
+1. **选择 MCP 客户端**
 
-具体操作请参见下一章节。（客户端使用）
+可选择cherry studio,Cursor,Claude等任意 MCP 客户端。
+下载链接：
+cherry studio:https://www.cherry-ai.com/
 
-配置文件示例：
+Cursor: https://docs.cursor.com/zh/tools/mcp
+
+Claude: https://claude.ai/
+
+2. **添加 `json` 配置**
+
+具体操作请参见下一章节。（客户端使用），此处展示json的格式和我们提供的url。
+
+不同客户端的json配置有所差别，但大致格式如下：
+
 
 ```json
 {
@@ -50,6 +63,20 @@ npx @modelcontextprotocol/inspector
     }
   }
 }
+```
+我们提供的远程url为：
+```
+https://oceangpt-mcp.onrender.com/sse
+```
+
+或:
+
+```
+https://oceangpy-c-cite-mwlqnwjval.cn-hangzhou.fcapp.run/sse
+```
+如果要使用声纳图识别服务，则远程url为：
+```
+http://60.191.72.39:8082/sse
 ```
 
 
@@ -149,7 +176,7 @@ python oceanserver.py
 
 > 支持本地与远程服务器，本章则以 [Cursor](https://www.cursor.com/cn) 为例。
 
-所有 MCP 客户端仅需修改其 `json` 配置文件即可。
+所有 MCP 客户端需要修改其 `json` 配置文件来调用服务。
 
 **本地配置示例：**
 
@@ -197,4 +224,13 @@ https://oceangpt-mcp.onrender.com/sse
 https://oceangpy-c-cite-mwlqnwjval.cn-hangzhou.fcapp.run/sse
 ```
 
-（请选用更稳定的那个）
+如果要使用声纳图识别服务，则远程url为：
+```
+http://60.191.72.39:8082/sse
+```
+配置完成后，需要配置大模型的API。获取API key和API地址推荐使用 *硅基流动* https://siliconflow.cn/ 或者 *gemini*  https://ai.google.dev/gemini-api
+
+远程url，大模型API配置完成后，就可以像使用正常的大模型一样调用服务了。只需要输入图片url，并给出“检测这张声纳图”这样的指令就可以开始处理了。
+
+可以打开下面这个网页，打开子文件夹中的图片，复制此时的网页地址作为url用来测试
+http://60.191.72.39:8004/
