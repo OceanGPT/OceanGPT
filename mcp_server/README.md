@@ -50,7 +50,7 @@ Our Ocean Science Sonar Vision Model is designed to identify various underwater 
 | 10   | Valve            | 阀门         |
 | 11   | Rov              | 水下机器人   |
 | 12   | Circle Cage      | 圆形笼       |
-| 13   | Pipeline         | 地下管道     |
+| 13   | Pipeline         | 水下管道     |
 | 14   | Metal Bucket     | 金属桶       |
 | 15   | Ball             | 球体         |
 
@@ -58,16 +58,21 @@ After MCP Server deployed, you can ask your LLM just like this:
 
 ```
 Please use my MCP tool to analyze the following sonar image:
-["https://raw.githubusercontent.com/zjunlp/OceanGPT/main/mcp_server/data/SonarImage001.jpg"]
+["http://60.191.72.39:8004/test/plane/plane-2.png"]
 What does the image indicate, and what object might it represent?
 ```
 
-**Make sure** your prompt contains at least a sonar image local path or remote url:
+Make sure your prompt contains at least a sonar image **local path** or **remote url**:
 
-When our MCP server is local, you can provide a local path or remote url.
+When our MCP server is *local*, you can provide a **local path** or **remote url**.
 
-When our MCP server is remote, you can provide a remote url.
+When our MCP server is *remote*, you can provide a **remote url**.
 
+* For better results, your prompt words should include the term "sonar image".
+
+>Visit the following webpage to obtain the remote URL of the test image:
+
+`http://60.191.72.39:8004/`
 ### Fish Image Caption
 
 > Will be released soon...
@@ -79,6 +84,8 @@ When our MCP server is remote, you can provide a remote url.
 
 
 ## 🛰️ Server Deploy
+
+>You can choose either the **Remote** or the **local**.
 
 ### Remote
 
@@ -96,9 +103,14 @@ npx @modelcontextprotocol/inspector
 
 
 
-2. **Select your MCP client & add `json` config (Without any other steps)**
+2. Select and download your MCP client
 
-The `json` file may look like:
+You can choose any MCP client you like, such as Cursor,Cherry studio,Claude, etc. Please refer to their official documents for installation and usage. Details are in [the next chapter](#-client-host).
+
+3. Add `json` config 
+
+The JSON configuration formats for different clients may vary.The `json` file may look like: 
+
 
 ```json
 {
@@ -112,7 +124,7 @@ The `json` file may look like:
   }
 }
 ```
-
+the detailed json of different clients are [in the next chapter](#-client-host).
 <a id="current_url"></a>
 
 👇 The current remote server URL is:
@@ -126,14 +138,20 @@ or:
 ```
 https://oceangpy-c-cite-mwlqnwjval.cn-hangzhou.fcapp.run/sse
 ```
+👇 The URL for the sonar detection service is
+```
+http://60.191.72.39:8082/sse
+```
 
-👆
+4.Configure the API key and address
 
-> [!NOTE]
-> It may time-out due to network connection. So if this happens many times, we recommend using the local MCP service mentioned below.
+You need acquire API key and address of large lauguage model to use the AI service.here are some recommended models:
 
+https://cloud.siliconflow.cn/me/models
 
+https://ai.google.dev/gemini-api/
 
+You need to apply for an API key and record the address of the required model. Then, use these details to complete the configuration in the MCP client.
 ### Local
 
 > Support both *STDIO* and *SSE* transport type.
@@ -148,6 +166,8 @@ cd OceanGPT/mcp_server
 ```
 
 2. **Use `uv` to manage project (need to [install uv](https://docs.astral.sh/uv/getting-started/installation/#installing-uv) first)**
+
+> You can get the appropriate download command from https://docs.astral.sh/uv/getting-started/installation/.
 
 **Windows:**
 
@@ -225,6 +245,7 @@ The `json` file may look like:
 
 
 
+
 ## 📡 Client Host
 
 All these MCP client you just need modify their `json` config file.
@@ -232,6 +253,8 @@ All these MCP client you just need modify their `json` config file.
 ### Cursor
 
 > Support both *local* and *remote* server.
+
+ >Download Cursor cliendt from https://docs.cursor.com/zh/tools/mcp
 
 **Local json config:**
 
@@ -303,6 +326,7 @@ All these MCP client you just need modify their `json` config file.
 
 > Support both *local* and *remote* server, but please ensure that your LLM can access international networks.
 
+>download Cherry Studio from https://www.cherry-ai.com/
 **Local json config:**
 
 ```json
