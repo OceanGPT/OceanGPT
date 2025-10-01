@@ -52,6 +52,7 @@ We have published a detailed beginner's guide for OceanGPT to help you quickly u
 - <a href="#citation">Citation</a>
 
 ## 🔔News
+- **2025-10-1, we released the initial version of OceanGym along with the accompanying [paper](https://arxiv.org/abs/2509.26536).**
 - **2025-08-05, we release a [tutorial](https://github.com/zjunlp/OceanGPT/blob/main/CustomQA_EN.md) on fine-tuning the OceanGPT model for Task-Oriented QA tasks.**
 - **2025-06-17, we release the OceanGPT-coder-0.6B.**
 - **2025-05-29, we deploy the OceanGPT MCP Server to support sonar image interpretation.**
