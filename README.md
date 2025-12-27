@@ -52,7 +52,7 @@ We have published a detailed beginner's guide for OceanGPT to help you quickly u
 - <a href="#citation">Citation</a>
 
 ## 🔔News
-- **2025-12-15, we release the OceanGPT-30B and OceanGPT-4B models, trained on Huawei Ascend AI processors.**
+- **2025-12-15, we release new instruction-tuned and reasoning models, including OceanGPT-30B and OceanGPT-4B, using Huawei Ascend AI 910B.**
 - **2025-10-1, we released the initial version of [OceanGym](https://github.com/OceanGPT/OceanGym) along with the accompanying [paper](https://arxiv.org/abs/2509.26536).**
 - **2025-08-05, we release a [tutorial](https://github.com/zjunlp/OceanGPT/blob/main/CustomQA_EN.md) on fine-tuning the OceanGPT model for Task-Oriented QA tasks.**
 - **2025-06-17, we release the OceanGPT-coder-0.6B.**
@@ -77,7 +77,7 @@ We have published a detailed beginner's guide for OceanGPT to help you quickly u
 | OceanGPT-basic-4B-Thinking (based on Qwen, **recommended**) | <a href="https://modelscope.cn/models/ZJUNLP/OceanGPT-basic-4B-Thinking" target="_blank">4B</a> | <a href="https://huggingface.co/zjunlp/OceanGPT-basic-4B-Thinking" target="_blank">4B</a> |
 | OceanGPT-o-7B (based on Qwen, **recommended**) | <a href="https://modelscope.cn/models/ZJUNLP/OceanGPT-o-7B" target="_blank">7B</a> | <a href="https://huggingface.co/zjunlp/OceanGPT-o-7B" target="_blank">7B</a> |
 | OceanGPT-coder-7B (based on Qwen, **recommended**) | <a href="https://modelscope.cn/models/ZJUNLP/OceanGPT-coder-7B" target="_blank">7B</a> | <a href="https://huggingface.co/zjunlp/OceanGPT-coder-7B" target="_blank">7B</a> |
-| OceanGPT-basic-8B (based on Qwen, **recommended**) | <a href="https://www.modelscope.cn/models/ZJUNLP/OceanGPT-basic-8B" target="_blank">8B</a> | <a href="https://huggingface.co/zjunlp/OceanGPT-basic-8B" target="_blank">8B</a> |
+| OceanGPT-basic-8B (based on Qwen) | <a href="https://www.modelscope.cn/models/ZJUNLP/OceanGPT-basic-8B" target="_blank">8B</a> | <a href="https://huggingface.co/zjunlp/OceanGPT-basic-8B" target="_blank">8B</a> |
 | OceanGPT-basic-14B (based on Qwen, legacy) | <a href="https://modelscope.cn/models/ZJUNLP/OceanGPT-14B-v0.1" target="_blank">14B</a> | <a href="https://huggingface.co/zjunlp/OceanGPT-14B-v0.1" target="_blank">14B</a> |
 | OceanGPT-basic-7B (based on Qwen, legacy) | <a href="https://modelscope.cn/models/ZJUNLP/OceanGPT-7b-v0.2" target="_blank">7B</a> | <a href="https://huggingface.co/zjunlp/OceanGPT-7b-v0.2" target="_blank">7B</a> |
 | OceanGPT-basic-2B (based on MiniCPM, legacy) | <a href="https://modelscope.cn/models/ZJUNLP/OceanGPT-2B-v0.1" target="_blank">2B</a> | <a href="https://huggingface.co/zjunlp/OceanGPT-2B-v0.1" target="_blank">2B</a> |
