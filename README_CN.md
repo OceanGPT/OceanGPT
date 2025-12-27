@@ -51,7 +51,7 @@
 - <a href="#引用">引用</a>
 
 ## 🔔最新动态
-- **2025-12-15，我们发布了基于华为昇腾AI处理器训练的OceanGPT-30B和OceanGPT-4B模型。**
+- **2025-12-15，我们发布了基于华为昇腾AI处理器训练的指令遵循和慢思考模型，包括OceanGPT-30B和OceanGPT-4B。**
 - **2025-10-01，我们发布了[OceanGym](https://github.com/OceanGPT/OceanGym)的初始版本以及相应的[论文](https://arxiv.org/abs/2509.26536)。**
 - **2025-08-05，我们发布了关于微调OceanGPT模型进行任务导向问答任务的[教程](https://github.com/zjunlp/OceanGPT/blob/main/CustomQA_CN.md)。**
 - **2025-06-17，我们发布了OceanGPT-coder-0.6B。**
